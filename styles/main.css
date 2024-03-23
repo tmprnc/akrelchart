@@ -1,0 +1,195 @@
+@font-face {
+    font-family: "NuberNext Condensed";
+    src: url(../fonts/NuberNext-RegularCondensed.woff2);
+}
+
+@font-face {
+    font-family: "Visitor";
+    src: url(../fonts/Visitor.woff2);
+}
+
+p, a {
+    font-family: "NuberNext Condensed", "Segoe UI", sans-serif;
+}
+
+a {
+    color: #568eff;
+}
+
+a:hover {
+    color: #0037ff;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}   
+
+div {
+    box-sizing: border-box;
+}
+
+#cy {
+    height: 100vh;
+    width: 100vw;
+    background-color: #d9d9d9;
+}
+
+#footer {
+    position: absolute;
+    left: 1%;
+    right: 1%;
+    width: auto;
+    padding: 6px;
+    box-shadow: 0 4px 4px gray, 0 0 2px gray;
+    border-radius: 2px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+#footer p {
+    margin-block: 0;
+}
+
+#footer > div {
+    height: 12pt;
+    width: 50%;
+    display: flex;
+    gap: 6px;
+}
+
+#footer > div:first-child {
+    justify-content: start;
+}
+
+#footer > div:last-child {
+    justify-content: end;
+}
+
+.footer_v {
+    bottom: 2%;
+    animation: slideup 0.4s ease-in-out;
+}
+
+.footer_i {
+    bottom: -6%;
+    animation: slidedown 0.4s ease-in-out;
+}
+
+@keyframes slidedown {
+    0% {
+        bottom: 2%;
+    }
+    100% {
+        bottom: -6%;
+    }
+}
+@keyframes slideup {
+    0% {
+        bottom: -6%;
+    }
+    100% {
+        bottom: 2%;
+    }
+}
+
+#restoreui {
+    display: flex;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: 0;
+    padding: 0 1% 2% 1%;
+    align-items: end;
+    justify-content: start;
+}
+
+.restoreui_i {
+    left: -50%;
+    animation: slideleft 0.5s ease-in-out;
+}
+
+.restoreui_v {
+    left: 0;
+    animation: slideright 0.5s ease-in-out;
+}
+
+.hiddenlink {
+    opacity: 0;
+    color: #568eff;
+    animation: fadeout 0.2s linear;
+}
+
+.hiddenlink:hover {
+    opacity: 100;
+    animation: fadein 1s linear;
+}
+
+@keyframes slideleft {
+    0% {
+        right: 0;
+    }
+    100% {
+        right: -50%;
+    }
+}
+@keyframes slideright {
+    0% {
+        right: -50%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }   
+}
+
+.none {
+    display: none;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    background-color: #568eff;
+    mask-repeat: no-repeat;
+}
+
+.icon:hover {
+    background-color: #1563ff;
+}
+
+.icon-open {
+    mask-image: url("../images/popout/open.svg");
+}
+
+.icon-edit {
+    mask-image: url("../images/popout/edit.svg");
+}
+
+.icon-delete {
+    mask-image: url("../images/popout/delete.svg");
+}

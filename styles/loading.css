@@ -1,0 +1,57 @@
+#loading {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none;
+}
+
+.loading_v {
+    background-color: black;
+    opacity: 1;
+    z-index: 4;
+}
+
+.loading_i {
+    background-color: black;
+    opacity: 0;
+    z-index: 0;
+    animation: l_fadeout 2s cubic-bezier(0.55, 0.09, 0.68, 0.53);
+}
+
+#loading p {
+    width: 175px;
+    color: #568eff;
+    font-family: "Visitor";
+    padding: 0;
+    text-align: center;
+}
+
+/* i shouldn't have to do this */
+#l1 {
+    letter-spacing: 11px;
+    margin: 0;
+}
+
+#l2 {
+    letter-spacing: 18px;
+    margin: -6px 0 0;
+}
+
+#warn {
+    /* something's wrong */
+    color: #ff0000a5 !important; 
+}
+
+@keyframes l_fadeout {
+    0% {
+        opacity: 1;
+        z-index: 10;
+    }
+    100% {
+        opacity: 0;
+        z-index: 0;
+    }
+}

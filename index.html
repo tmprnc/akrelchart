@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARC</title>
+    <meta content="Arknights Relations Chart" property="og:title" />
+    <!-- <meta content="" property="og:description" /> -->
+    <meta content="https://ptilopsis.network" property="og:url" />
+    <meta content="https://ptilopsis.network/images/loading/open.webp" property="og:image" />
+    <meta content="#0C4AC8" data-react-helmet="true" name="theme-color" />
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/loading.css">
+    <link rel="stylesheet" href="./styles/popout.css">
+    <link rel="stylesheet" href="./styles/search.css">
+    <link rel="stylesheet" href="./styles/dialog.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.basic.min.js"></script>
+</head>
+
+<body>
+
+    <div class="loading_v" id="loading">
+        <div>
+            <p id="l1">PTILOPSIS</p>
+            <img id="ptilop" src="./images/loading/closed.webp">
+            <p id="l2">NETWORK</p>
+            <p>Please wait...</p>
+            <p id="load">querying database</p>
+            <p id="warn"></p>
+            <p>the relations chart is currently a work in progress.</p>
+            <p>data is incomplete and it can be incorrect!</p>
+        </div>
+    </div>
+
+
+    <div id="search" class="search_i">
+        <form autocomplete="off">
+            <input type="search" id="searchbar" oninput="auto('result', true, 'characters')">
+            <ul id="result" class="result">
+            </ul>
+        </form> 
+        <a href="#" onclick="unpopsearch()">cancel</a>
+    </div>
+
+    <div id="cy"></div>
+
+    <div id="popoutcontainer" class="popoutcontainer_i">
+        <img src="images/faction/blank.webp"> 
+        <div id="popout">
+            <a href="#" class="hiddenlink" id="collapse" onclick="collapse()">collapse &Gt;</a>
+            <h1></h1>
+            <img src="./images/faction/blank.webp">
+            <ul id="list">
+                <li></li>
+                <li></li>
+            </ul>
+            <a href="#" class="admin none" onclick="showdialog('chard', cy.$(':selected')[0])">edit properties</a>
+            <div>
+                <h2>INSTANCES</h2>
+                <ul id="instancelist"></ul>
+                <a href="#" class="admin none" onclick="showdialog('instanced', cy.$(':selected')[0])">add instance</a>
+            </div>
+            <div>
+                <h2>ASSOCIATIONS</h2>
+                <h3>Relations</h3>
+                <ul id="relations"></ul>
+                <h3>Interactions</h3>
+                <ul id="interactions"></ul>
+                <a href="#" class="admin none" onclick="showdialog('assocd', cy.$(':selected')[0])">add association</a>
+            </div>
+            <div>
+                <h2>REFERENCES</h2>
+                <h3>Mentioned</h3>
+                <ul id="mentionby"></ul>
+                <h3>Mentions</h3>
+                <ul id="mentions"></ul>
+                <a href="#" class="admin none" onclick="showdialog('mentiond', cy.$(':selected')[0])">add mention</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="login" class="center login_i">
+        <form id="loginform">
+            <button type="button" class="close" onclick="hidelogin()">╳</button>
+            <label>username</label>
+            <input type="text" name="user">
+            <label>password</label>
+            <input type="password" name="pw">
+            <br>
+            <input type="submit" value="Login">
+            <p class="err" id="lerr"></p>
+        </form>
+    </div>
+
+    <div class="center ays_i focus" id="ays">
+        <div class="dialog">
+            <p>Are you sure you want to delete
+            <span class="err" id="areyoudel"></span>?</p>
+            <div class="row">
+                <button id="aysb">Yes</button>
+                <button onclick="setvisibility(document.getElementById('ays'), 'i')">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="center" id="instanced">
+        <form class="dialogform" id="instanceform" onsubmit="sendedge(this)">
+            <button type="button" class="close" onclick="closedialog(this)">╳</button>
+            <h1></h1>
+            <input type="hidden" name="_key">
+            <div>
+                <div>
+                    <label>Character<span class="req"> *</span></label>
+                    <input type="text" name="_from" 
+                    oninput="auto('r_insdiag', false, 'characters', 3); charvalid(this)" 
+                    required pattern="(characters\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_insdiag"></ul>
+                </div>
+                <div>
+                    <label>Type<span class="req"> *</span></label>
+                    <select name="type" id="inselect" required>
+                        <option value=""></option>
+                        <option value="present in">present in</option>
+                        <option value="mentioned in">mentioned in</option>
+                        <option value="quoted in">quoted in</option>
+                        <option value="first appeared in">first appeared in</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <label>Instance<span class="req"> *</span></label>
+                    <input type="text" name="_to" 
+                    oninput="auto('r_insdiage', false, 'events', 2); charvalid(this)"
+                    required pattern="^(events\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_insdiage"></ul>
+                </div>
+                <div>
+                    <label>Sprite</label>
+                    <input type="text" name="sprite" value="default">
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Add">
+            <p class="err" id="ierr"></p>
+        </form>
+    </div>
+
+    <div class="center" id="assocd">
+        <form class="dialogform" id="associationform" onsubmit="sendedge(this)">
+            <button type="button" class="close" onclick="closedialog(this)">╳</button>
+            <h1></h1>
+            <input type="hidden" name="_key">
+            <div>
+                <div>
+                    <label>From<span class="req"> *</span></label>
+                    <input type="text" name="_from"
+                    oninput="auto('r_assocdiag1', false, 'characters', 6); charvalid(this)"
+                    required pattern="^(characters\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_assocdiag1"></ul>
+                </div>
+                <div>
+                    <label>To<span class="req"> *</span></label>
+                    <input type="text" name="_to"
+                    oninput="auto('r_assocdiag2', false, 'characters', 6); charvalid(this)"
+                    required pattern="^(characters\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_assocdiag2"></ul>
+                </div>
+            </div>
+            <input type="radio" name="type" value="relation" id="r1" required>
+            <label for="r1">Relation</label>
+            <br>
+            <input type="radio" name="type" value="interaction" id="r2" required>
+            <label for="r2">Interaction</label>
+            <br>
+            <div>
+                <div>
+                    <label>Subtype<span class="req"> *</span></label>
+                    <input type="text" name="subtype" required>
+                </div>
+                <div>
+                    <label>Reverse subtype</label>
+                    <input type="text" name="subtype_reverse" placeholder="Use if subtype is incoherent when used in both ways">
+                </div>
+                <div>
+                    <label>Instance<span class="req"> *</span></label>
+                    <input type="text" name="instance" 
+                    oninput="auto('r_assocdiage', false, 'events', 3); charvalid(this)"
+                    required pattern="^(events\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_assocdiage"></ul>
+                </div>
+                <div>
+                    <label>Instance detail</label>
+                    <input type="text" name="instancedetail">
+                </div>
+                <div>
+                    <label>Source URL</label>
+                    <input type="text" name="url">
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Add">
+            <p class="err" id="aerr"></p>
+        </form>
+    </div>
+
+    <div class="center" id="mentiond">
+        <form class="dialogform" id="mentionform" onsubmit="sendedge(this)">
+            <button type="button" class="close" onclick="closedialog(this)">╳</button>
+            <h1></h1>
+            <input type="hidden" name="_key">
+            <div>
+                <div>
+                    <label>From<span class="req"> *</span></label>
+                    <input type="text" name="_from" 
+                    oninput="auto('r_mendiag1', false, 'characters', 4); charvalid(this)" 
+                    required pattern="^(characters\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_mendiag1"></ul>
+                </div>
+                <div>
+                    <label>To<span class="req"> *</span></label>
+                    <input type="text" name="_to"
+                    oninput="auto('r_mendiag2', false, 'characters', 4); charvalid(this)"
+                    required pattern="^(characters\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_mendiag2"></ul>
+                </div>
+            </div>
+            <br><input type="hidden" name="type" value="mention">
+            <div>
+                <div>
+                    <label>Instance<span class="req"> *</span></label>
+                    <input type="text" name="instance"
+                    oninput="auto('r_mendiage', false, 'events', 3); charvalid(this)"
+                    required pattern="^(events\/)+(\w|-){1,128}">
+                    <ul class="result" id="r_mendiage"></ul>
+                </div>
+                <div>
+                    <label>Instance detail</label>
+                    <input type="text" name="instancedetail">
+                </div>
+                <div>
+                    <label>Source URL</label>
+                    <input type="text" name="url">
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Add">
+            <p class="err" id="merr"></p>
+        </form>
+    </div>
+
+    <div class="center" id="chard">
+        <form class="dialogform" id="characterform">
+            <button type="button" class="close" onclick="closedialog(this)">╳</button>
+            <h1></h1>
+            <nothing></nothing>
+            <div>
+                <div>
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                    <ul class="result" id="r_chardiag"></ul>
+                </div>
+                <div>
+                    <label>Internal ID</label>
+                    <input type="text" name="_key" required>
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <label>Faction</label>
+                    <input type="text" name="faction" placeholder="Strongly recommended to include this field">
+                </div>
+                <div>
+                    <label>Sub-faction</label>
+                    <input type="text" name="sub-faction">
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Illustrator</label>
+                        <input type="text" name="illustrator">
+                    </div>
+                    <div>
+                        <label>Romanized</label>
+                        <input type="text" name="romanized">
+                    </div>
+                    <button class="unsetw">+</button>
+                </div>
+                <div class="row">
+                    <div>
+                        <label>Aliases</label>
+                        <input type="text" name="aliases">
+                    </div>
+                    <button>+</button>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="row">
+                        <input type="checkbox" name="npc" id="c1">
+                        <label for="c1">NPC?</label>
+                        <input type="checkbox" name="global" id="c2">
+                        <label for="c2">On the Global server?</label>
+                    </div>
+                    <div>
+                        <label>Gender</label>
+                        <select name="gender">
+                            <option value=""></option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Agender">Agender</option>
+                            <option value="Unknown">Unknown</option>
+                            <option value="Multiple">Multiple</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+
+    <div id="pw" class="center pw_i">
+        <form id="pwform" onsubmit="changepw(this)">
+            <button type="button" class="close" onclick="hidepwchange()">╳</button>
+            <label>new password</label>
+            <input type="password" name="pw" required minlength="8">
+            <label>confirm</label>
+            <input type="password" name="pwc" required minlength="8">
+            <br>
+            <input type="submit" value="change password">
+            <p class="err" id="pwerr"></p>
+        </form>
+    </div>
+
+    <div class="footer_v" id="footer">
+        <div>
+            <a href="#" onclick="hide()">hide</a>
+            <a href="#" onclick="popsearch()">search</a>
+            <a href="#" onclick="toggletextsize()">toggle text size</a>
+        </div>
+        <div>
+            <p id="loginstr" class="admin none">logged in as <span id="username">guest</span></p>
+            <a href="#" onclick="showpwchange()" id="pwa" class="admin none">change password</a>
+            <a href="#" onclick="logout()" id="logout" class="admin none">logout</a>
+            <a href="#" onclick="showlogin()" id="logina" class="admin">edit</a>
+        </div>
+    </div>
+
+    <div class="restoreui_i" id="restoreui">
+        <a href="#" class="hiddenlink" onclick="unhide()">unhide</a>
+    </div>
+
+    <script src="./scripts/arc-db.js"></script>
+    <script src="./scripts/arc-cy.js"></script>
+    <script src="./scripts/arc-ui.js"></script>
+    <script src="./scripts/arc-se.js"></script>
+</body>
+
+</html>
