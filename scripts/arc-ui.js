@@ -293,7 +293,7 @@ function dynamicnewinput(type) {
 // type: instance, association, mention, character, event
 function showdialog(id, data) {
     dialog = document.getElementById(id).firstElementChild
-    closedialog(dialog)
+    closedialog()
     dialog.classList.add("activedialog")
     dialog.parentElement.classList.add("focus")
     h1 = dialog.children[1]
@@ -373,14 +373,12 @@ function showdialog(id, data) {
     }
 }
 
-function closedialog(that) {
+function closedialog() {
     a = document.querySelector(".activedialog")
     if (a) {
         a.classList.remove("activedialog")
         a.parentElement.classList.remove("focus")
-        if (that) {
-            that.parentElement.reset()
-        }
+        a.reset()
     }
 }
 
