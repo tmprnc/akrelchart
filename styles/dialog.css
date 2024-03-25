@@ -233,3 +233,16 @@ label {
     margin-top: 12px;
     cursor: pointer;
 }
+
+form.dialogform input[type=date] {
+    width: max-content; /* !important? */
+}
+
+input#c3 {
+    margin: 0;
+}
+
+label[for=c3] {
+    width: 90%;
+    align-self: center;
+}
