@@ -339,7 +339,7 @@ function showdialog(id, data) {
         if (data.data("category") === "chartochar"  // i am very smart
          || data.data("category") === "chartoevent"
          || (data.data("illustrator") && dialog.id === "characterform")
-         || (data.data("completion") && dialog.id === "eventform")) {
+         || (data.data("releasedate") && dialog.id === "eventform")) {
             dialog.children[1].innerHTML = `Editing ${h1} ${data.data("_key")}`
             dialog.lastElementChild.value = "Edit"
             switch (dialog.id) {

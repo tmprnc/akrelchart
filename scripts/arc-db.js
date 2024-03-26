@@ -118,7 +118,7 @@ function charvalid(input) {
 }
 
 
-async function sendedge(that) {
+async function send(that) {
     event.preventDefault();
     
     switch (that.id) {
@@ -134,6 +134,9 @@ async function sendedge(that) {
             err = document.getElementById("merr")
             endpoint = "chartochar"
             break;
+        case "eventform":
+            err = document.getElementById("eerr")
+            endpoint = "events"
         default:
             break;
     }

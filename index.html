@@ -107,7 +107,7 @@
     </div>
 
     <div class="center" id="instanced">
-        <form class="dialogform" id="instanceform" onsubmit="sendedge(this)">
+        <form class="dialogform" id="instanceform" onsubmit="send(this)">
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <input type="hidden" name="_key">
@@ -151,7 +151,7 @@
     </div>
 
     <div class="center" id="assocd">
-        <form class="dialogform" id="associationform" onsubmit="sendedge(this)">
+        <form class="dialogform" id="associationform" onsubmit="send(this)">
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <input type="hidden" name="_key">
@@ -209,7 +209,7 @@
     </div>
 
     <div class="center" id="mentiond">
-        <form class="dialogform" id="mentionform" onsubmit="sendedge(this)">
+        <form class="dialogform" id="mentionform" onsubmit="send(this)">
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <input type="hidden" name="_key">
@@ -324,7 +324,7 @@
     </div>
 
     <div class="center" id="eventd">
-        <form class="dialogform" id="eventform">
+        <form class="dialogform" id="eventform" onsubmit="send(this)">
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <nothing></nothing> <!-- parity with the other elements (hidden _key) -->
@@ -362,7 +362,9 @@
                 </div>
             </div>
             <br>
-            <input type="submit" value="Add"></form>
+            <input type="submit" value="Add">
+            <p id="eerr"></p>
+        </form>
     </div>
 
     <div id="pw" class="center pw_i">
