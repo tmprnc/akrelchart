@@ -74,6 +74,20 @@ function instancegen(edge){// event, type, as) {
         event.preventDefault()
         showdialog("instanced", edge)
     }
+    a3 = document.createElement("a")
+    a3.classList.add("admin")
+    if (!loggedin) {
+        a3.classList.add("none")
+    }
+    a3.classList.add("icon")
+    a3.classList.add("icon-editevent")
+    a3.href = '#'
+    a3.title = "Edit event"
+    a3.onclick = function() {
+        event.preventDefault()
+        showdialog("eventd", evt)
+    }
+    li.appendChild(a3)
     li.appendChild(a2)
     li.appendChild(delbutton(edge))
     return li
@@ -310,6 +324,9 @@ function showdialog(id, data) {
         case "characterform":
             h1 = "character"
             break;
+        case "eventform":
+            h1 = "event";
+            break;
         default:
             break;
     }
@@ -321,7 +338,8 @@ function showdialog(id, data) {
         dialog.children[3].children[0].children[1].value = data.data("id")
         if (data.data("category") === "chartochar"  // i am very smart
          || data.data("category") === "chartoevent"
-         || (data.data("illustrator") && dialog.id === "characterform")) {
+         || (data.data("illustrator") && dialog.id === "characterform")
+         || (data.data("completion") && dialog.id === "eventform")) {
             dialog.children[1].innerHTML = `Editing ${h1} ${data.data("_key")}`
             dialog.lastElementChild.value = "Edit"
             switch (dialog.id) {
@@ -365,6 +383,15 @@ function showdialog(id, data) {
                     fe["npc"].checked = data.data("npc")
                     fe["global"].checked = data.data("global")
                     fe["gender"].value = data.data("gender")
+                    break;
+                case "eventform":
+                    fe["_key"].value = data.data("_key")
+                    fe["name"].value = data.data("name")
+                    fe["type"].value = data.data("type")
+                    fe["subtype"].value = data.data("subtype")
+                    fe["releasedate"].value = data.data("releasedate")
+                    fe["url"].value = data.data("url")
+                    fe["completion"].checked = data.data("completion")
                     break;
                 default:
                     break;

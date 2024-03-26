@@ -193,3 +193,7 @@ div {
 .icon-delete {
     mask-image: url("../images/popout/delete.svg");
 }
+
+.icon-editevent {
+    mask-image: url("../images/popout/editevent.svg");
+}
