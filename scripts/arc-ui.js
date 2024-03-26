@@ -41,7 +41,7 @@ function delbutton(edge) {
 }
 
 function instancegen(edge){// event, type, as) {
-    evt = cy.$(`[id = "${edge.data("target")}"]`)
+    evt = cy.$id(edge.data("target"))
     type = edge.data("type")
     _as = edge.data("sprite")
     li = document.createElement("li");
@@ -94,12 +94,12 @@ function instancegen(edge){// event, type, as) {
 }
 
 function assocgen(edge, point, reverse) {
-    target = cy.$(`[id = "${edge.data(`${point === "source" ? "source" : "target"}`)}"]`)
+    target = cy.$id(edge.data(`${point === "source" ? "source" : "target"}`))
     itype = reverse ? edge.data("subtype_reverse") : edge.data("subtype")
     if (!itype) {
         itype = edge.data("subtype")
     }
-    evt = cy.$(`[id = "${edge.data("instance")}"]`)
+    evt = cy.$id(edge.data("instance"))
     li = document.createElement("li")
     p1 = document.createElement("p")
     p1.innerHTML = itype
@@ -151,8 +151,8 @@ function assocgen(edge, point, reverse) {
 }
 
 function mentiongen(edge, point, by) {
-    char = cy.$(`[id = "${edge.data(`${point === "source" ? "source" : "target"}`)}"]`)
-    instance = cy.$(`[id = "${edge.data('instance')}"]`)
+    char = cy.$id(edge.data(`${point === "source" ? "source" : "target"}`))
+    instance = cy.$id(edge.data('instance'))
     li = document.createElement("li")
     img = document.createElement("img")
     img.src = `../images/icon/${char.data("_key")}.webp`
