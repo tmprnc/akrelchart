@@ -142,7 +142,10 @@ async function send(that) {
     }
 
     const fd = new FormData(that)
-    
+    if (that.id === "eventform") {
+        fd.set('completion', fd.has('completion') ? true : false)
+    }
+
     r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
         method: "POST",
         body: fd,
@@ -157,11 +160,22 @@ async function send(that) {
         response = await r.json()
         b._key = response._key
         b._id = response._id
-        if (cy.$id(b._id).data()) {
-            cy.remove(cy.$id(b._id))
+        if (that.id === "eventform") {
+            if (b.completion == "true") {
+                b.completion = true
+            } else if (b.completion == "false") {
+                b.completion = false
+            }
         }
-        edge = cy.add({data: {...cyte(b), category: `${endpoint}`}})
-        goto(cy.$id(fd.get("_from")).data("_key"))
+
+        if (cy.$id(b._id).data()) {
+            cy.$id(b._id).data({...cyte(b), category: `${endpoint}`})
+        } else {
+            cy.add({data: {...cyte(b), category: `${endpoint}`}})
+        }
+        if (that.id !== "eventform") {
+            goto(cy.$id(fd.get("_from")).data("_key"))
+        }
     } else {
         err.innerHTML = r.statusText.toLowerCase()
     }
