@@ -71,7 +71,7 @@ async function go() {
             loadtext("warn", "this will take a while on mobile devices")
         }, 1000)
     }
-    cy.elements('[category != "events"][category != "chartoevent"]').layout({name:'cose'}).run()
+    cy.elements('[category != "events"][category != "chartoevent"]').layout({name:'cose', animate: false}).run()
 }
 
 cy.on('layoutstop', function(){
