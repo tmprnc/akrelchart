@@ -260,12 +260,12 @@
             <nothing></nothing> <!-- parity with the other elements (hidden _key) -->
             <div>
                 <div>
-                    <label>Name</label>
+                    <label>Name<span class="req"> *</span></label>
                     <input type="text" name="name" required>
                     <ul class="result" id="r_chardiag"></ul>
                 </div>
                 <div>
-                    <label>Internal ID</label>
+                    <label>Internal ID<span class="req"> *</span></label>
                     <input type="text" name="_key" required>
                 </div>
             </div>
@@ -330,32 +330,32 @@
             <nothing></nothing> <!-- parity with the other elements (hidden _key) -->
             <div>
                 <div>
-                    <label>Name</label>
+                    <label>Name<span class="req"> *</span></label>
                     <input type="text" name="name" required>
                 </div>
                 <div>
-                    <label>Internal ID</label>
+                    <label>Internal ID<span class="req"> *</span></label>
                     <input type="text" name="_key" required>
                 </div>
             </div>
             <br>
             <div>
                 <div>
-                    <label>Type</label>
-                    <input type="text" name="type">
+                    <label>Type<span class="req"> *</span></label>
+                    <input type="text" name="type" required>
                 </div>
                 <div>
                     <label>Subtype</label>
                     <input type="text" name="subtype">
                 </div>
                 <div>
-                    <label>Event URL</label>
-                    <input type="text" name="url">
+                    <label>Event URL<span class="req"> *</span></label>
+                    <input type="text" name="url" required>
                 </div>
                 <div class="row">
                     <div>
-                        <label>Release date</label>
-                        <input type="date" name="releasedate">
+                        <label>Release date<span class="req"> *</span></label>
+                        <input type="date" name="releasedate" required>
                     </div>
                     <input type="checkbox" name="completion" id="c3">
                     <label for="c3">Are this event's relations all properly checked?</label>
