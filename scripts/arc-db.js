@@ -137,8 +137,9 @@ async function send(that) {
         case "eventform":
             err = document.getElementById("eerr")
             endpoint = "events"
-        default:
             break;
+        default:
+            return;
     }
 
     const fd = new FormData(that)
@@ -146,39 +147,43 @@ async function send(that) {
         fd.set('completion', fd.has('completion') ? true : false)
     }
 
-    r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
-        method: "POST",
-        body: fd,
-        credentials: "include"
-    })
-    
-    if (await r.ok) {
-        that.reset()
-        closedialog()
-        err.innerHTML = ""
-        b = Object.fromEntries(fd.entries())
-        response = await r.json()
-        b._key = response._key
-        b._id = response._id
-        if (that.id === "eventform") {
-            if (b.completion == "true") {
-                b.completion = true
-            } else if (b.completion == "false") {
-                b.completion = false
-            }
-        }
+    try {
+        r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
+            method: "POST",
+            body: fd,
+            credentials: "include"
+        })
 
-        if (cy.$id(b._id).data()) {
-            cy.$id(b._id).data({...cyte(b), category: `${endpoint}`})
+        if (await r.ok) {
+            that.reset()
+            closedialog()
+            err.innerHTML = ""
+            b = Object.fromEntries(fd.entries())
+            response = await r.json()
+            b._key = response._key
+            b._id = response._id
+            if (that.id === "eventform") {
+                if (b.completion == "true") {
+                    b.completion = true
+                } else if (b.completion == "false") {
+                    b.completion = false
+                }
+            }
+    
+            if (cy.$id(b._id).data()) {
+                cy.$id(b._id).data({...cyte(b), category: `${endpoint}`})
+            } else {
+                cy.add({data: {...cyte(b), category: `${endpoint}`}})
+            }
+            if (that.id !== "eventform") {
+                goto(cy.$id(fd.get("_from")).data("_key"))
+            }
         } else {
-            cy.add({data: {...cyte(b), category: `${endpoint}`}})
+            err.innerHTML = await r.statusText.toLowerCase()
         }
-        if (that.id !== "eventform") {
-            goto(cy.$id(fd.get("_from")).data("_key"))
-        }
-    } else {
-        err.innerHTML = r.statusText.toLowerCase()
-    }
+    } catch (e) {
+        err.innerHTML = await r.statusText.toLowerCase()
+    }    
 }
 
 async function del(confirm, edge) {
