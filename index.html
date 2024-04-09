@@ -279,23 +279,27 @@
                     <label>Sub-faction</label>
                     <input type="text" name="sub-faction">
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Illustrator</label>
-                        <input type="text" name="illustrator">
+                <div id="illusdivs">
+                    <div class="row">
+                        <div>
+                            <label>Illustrator</label>
+                            <input type="text" name="illustrator">
+                        </div>
+                        <div>
+                            <label>Romanized</label>
+                            <input type="text" name="romanized">
+                        </div>
+                        <button type="button" class="unsetw" onclick="newinputrow('illus')">+</button>
                     </div>
-                    <div>
-                        <label>Romanized</label>
-                        <input type="text" name="romanized">
-                    </div>
-                    <button class="unsetw">+</button>
                 </div>
-                <div class="row">
-                    <div>
-                        <label>Aliases</label>
-                        <input type="text" name="aliases">
+                <div id="aliasdivs">
+                    <div class="row">
+                        <div>
+                            <label>Aliases</label>
+                            <input type="text" name="aliases">
+                        </div>
+                        <button type="button" onclick="newinputrow('alias')">+</button>
                     </div>
-                    <button>+</button>
                 </div>
                 <br>
                 <div class="row">
@@ -320,6 +324,7 @@
             </div>
             <br>
             <input type="submit" value="Add">
+            <p id="cerr"></p>
         </form>
     </div>
 

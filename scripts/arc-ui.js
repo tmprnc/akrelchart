@@ -280,6 +280,48 @@ function toggletextsize() {
 dialogform = document.getElementById("dialogform")
 
 
+function newinputrow(type, data) {
+    div = document.createElement("div")
+    div.classList.add("row")
+    let parentE = document.getElementById(`${type}divs`)
+    div.id = type + parentE.children.length
+    button = document.createElement("button")
+    button.type = "button"
+    button.innerHTML = "-"
+    button.onclick = function() {
+        parentE.children[parentE.children.length - 1].outerHTML = ""
+    }
+    div1 = document.createElement("div")
+    input1 = document.createElement("input")
+    label1 = document.createElement("label")
+    if (type === "illus") {
+        div2 = document.createElement("div")
+        label2 = document.createElement("label")
+        input2 = document.createElement("input")
+        label1.innerHTML = "Illustrator"
+        input1.type = "text"
+        input1.name = "illustrator"
+        label2.innerHTML = "Romanized"
+        input2.type = "text"
+        input2.name = "romanized"
+        div1.appendChild(label1)
+        div1.appendChild(input1)
+        div2.appendChild(label2)
+        div2.appendChild(input2)
+        div.appendChild(div1)
+        div.appendChild(div2)
+    } else if (type === "alias") {
+        input1.type = "text"
+        input1.name = "illustrator"
+        label1.innerHTML = "&nbsp;"
+        div1.appendChild(label1)
+        div1.appendChild(input1)
+        div.appendChild(div1)
+    }
+    div.appendChild(button)
+    parentE.appendChild(div)
+}
+
 function dynamicnewinput(type) {
     if (type === "illus") {
         const div = document.createElement("div");
