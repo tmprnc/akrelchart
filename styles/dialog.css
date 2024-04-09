@@ -199,6 +199,7 @@ label {
     background-color: #0000;
     border: #0000;
     color: rgb(0, 156, 0);
+    font-family: monospace;
     font-size: 24pt;
     cursor: pointer;
 }
