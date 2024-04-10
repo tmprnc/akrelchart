@@ -310,6 +310,14 @@ function newinputrow(type, data) {
         div2.appendChild(input2)
         div.appendChild(div1)
         div.appendChild(div2)
+        if (data) {
+            if (typeof data === "object") {
+                input1.value = data[0]
+                input2.value = data[1]
+            } else {
+                input1.value = data
+            }
+        }
     } else if (type === "alias") {
         input1.type = "text"
         input1.name = "illustrator"
@@ -317,6 +325,9 @@ function newinputrow(type, data) {
         div1.appendChild(label1)
         div1.appendChild(input1)
         div.appendChild(div1)
+        if (data) {
+            input1.value = data 
+        }
     }
     div.appendChild(button)
     parentE.appendChild(div)
@@ -417,11 +428,37 @@ function showdialog(id, data) {
                     fe["url"].value = data.data("url")
                     break;
                 case "characterform":
+                    id = document.getElementById("illusdivs")
+                    id.replaceChildren(id.children[0])
+                    ia = document.getElementById("aliasdivs")
+                    id.replaceChildren(id.children[0])
                     fe["_key"].value = data.data("_key")
                     fe["name"].value = data.data("name")
                     fe["faction"].value = data.data("faction")
                     fe["sub-faction"].value = data.data("sub-faction")
-                    // space reserved for dynamic inputs
+                    let fi = true
+                    let fa = true
+                    for (i of data.data("illustrator")) {
+                        if (fi) {
+                            if (typeof i === "object") {
+                                fe['illustrator'].value = i[0]
+                                fe['romanized'].value = i[1]
+                            } else {
+                                fe['illustrator'].value = i
+                            }
+                            fi = false
+                            continue
+                        }
+                        newinputrow("illus", i)
+                    }
+                    for (a of data.data("aliases")) {
+                        if (fa) {
+                            fe['aliases'].value = a
+                            fa = false
+                            continue
+                        }
+                        newinputrow("alias", a)
+                    }
                     fe["npc"].checked = data.data("npc")
                     fe["global"].checked = data.data("global")
                     fe["gender"].value = data.data("gender")
