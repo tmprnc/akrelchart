@@ -71,17 +71,22 @@ async function go() {
             loadtext("warn", "this will take a while on mobile devices")
         }, 1000)
     }
-    cy.elements('[category != "events"][category != "chartoevent"]').layout({name:'cose', animate: false}).run()
+    cy.elements('[category != "events"][category != "chartoevent"]').layout({
+        name: 'cose',
+        animate: false
+    }).run()
 }
 
 cy.on('layoutstop', function(){
-    //cy.zoom(0.6)
-    cy.center()
-    loadtext("load", "done!")
-    loadtext("warn", "")
-    document.getElementById('ptilop').src = `../images/loading/${ptilopload}`
-    document.getElementById('loading').classList.remove("loading_v")
-    document.getElementById('loading').classList.add("loading_i")
+    setTimeout(function(){
+        //cy.zoom(0.6)
+        cy.center()
+        loadtext("load", "done!")
+        loadtext("warn", "")
+        document.getElementById('ptilop').src = `../images/loading/${ptilopload}`
+        document.getElementById('loading').classList.remove("loading_v")
+        document.getElementById('loading').classList.add("loading_i")
+    }, 0)
 })
 
 inslist = document.getElementById("instancelist")
