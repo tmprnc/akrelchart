@@ -127,14 +127,12 @@ cy.on('select', 'node', async function(event){
     list[list.length - 2].innerHTML = node.data('faction')
     list[list.length - 1].innerHTML = node.data('sub-faction')
     illus = node.data('illustrator')
-    if (JSON.parse(illus)) {
-        for (i of JSON.parse(illus)) {
-            if (typeof i === 'string') {
-                generate(i)
-                continue
-            }
-            generate(i[0], i[1])
+    for (i of illus) {
+        if (typeof i === 'string') {
+            generate(i)
+            continue
         }
+        generate(i[0], i[1])
     }
 
     for (e of node.connectedEdges()) {
