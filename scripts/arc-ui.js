@@ -258,12 +258,12 @@ window.innerHeight / window.innerWidth
 */
 
 function showlogin() {
-    setvisibility(logind, "v")
+    setvisibility(document.getElementById("login"), "v")
     form.children[2].focus()
 }
 
 function hidelogin() {
-    setvisibility(logind, "i")
+    setvisibility(document.getElementById("login"), "i")
 }
 
 function goto(id) {

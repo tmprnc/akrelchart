@@ -55,41 +55,34 @@ async function load() {
     }
 }
 
-form = document.getElementById("loginform")
-logind = document.getElementById("login")
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    login();
-});
-
-
-
 lstr = document.getElementById("loginstr")
 usern = document.getElementById("username")
 logoutb = document.getElementById("logout")
 loginb = document.getElementById("logina")
 loggedin = false
 
-async function login() {
+async function login(form) {
+    event.preventDefault();
     const data = new FormData(form)
-    r = await fetch("https://api.ptilopsis.network/login", {
-        method: "POST",
-        body: data,
-        credentials: "include"
-    })
-
-    if (r.ok) {
-        setvisibility(logind, 'i')
-        document.querySelector('#loginform > input[type="password"]').value = ""
-        loadtext("lerr", "")
-        usern.innerHTML = await r.text()
-        document.querySelectorAll('.admin').forEach((ele) => {
-            ele.classList.toggle('none')
+    try {
+        r = await fetch("https://api.ptilopsis.network/login", {
+            method: "POST",
+            body: data,
+            credentials: "include"
         })
-        loggedin = true
-    } else {
-        loadtext("lerr", r.statusText.toLowerCase())
+    
+        if (r.ok) {
+            setvisibility(form.parentElement, 'i')
+            document.querySelector('#loginform > input[type="password"]').value = ""
+            loadtext("lerr", "")
+            usern.innerHTML = await r.text()
+            document.querySelectorAll('.admin').forEach((ele) => {
+                ele.classList.toggle('none')
+            })
+            loggedin = true
+        } 
+    } catch (e) {
+        loadtext("lerr", await r.statusText.toLowerCase())
     }
 }
 
@@ -99,7 +92,7 @@ async function logout() {
     })
 
     if (r.ok) {
-        setvisibility(logind, 'v')
+        setvisibility(document.getElementById("login"), 'v')
         closedialog()
         usern.innerHTML = ""
         document.querySelectorAll('.admin').forEach((ele) => {
