@@ -258,8 +258,9 @@ window.innerHeight / window.innerWidth
 */
 
 function showlogin() {
-    setvisibility(document.getElementById("login"), "v")
-    form.children[2].focus()
+    form = document.getElementById("login")
+    setvisibility(form, "v")
+    form.children[0].children[2].focus()
 }
 
 function hidelogin() {
