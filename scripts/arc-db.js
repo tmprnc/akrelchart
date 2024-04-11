@@ -20,14 +20,16 @@ chartoevent = []
 
 async function load() {
     try {
-        var chars = await fetch('https://api.ptilopsis.network/get/characters')
-        var eves = await fetch('https://api.ptilopsis.network/get/events')
-        var charchar = await fetch('https://api.ptilopsis.network/get/chartochar')
-        var charevent = await fetch('https://api.ptilopsis.network/get/chartoevent')
-        chars = await chars.json()
-        eves = await eves.json()
-        charchar = await charchar.json()
-        charevent = await charevent.json()   
+        const urls = [
+            'https://api.ptilopsis.network/get/characters',
+            'https://api.ptilopsis.network/get/events',
+            'https://api.ptilopsis.network/get/chartochar',
+            'https://api.ptilopsis.network/get/chartoevent'
+        ];
+
+        const fetchPromises = urls.map(url => fetch(url));
+        const response = await Promise.all(fetchPromises);
+        var [chars, eves, charchar, charevent] = await Promise.all(response.map(res => res.json()));
     } catch (e) {
         loadtext("warn", "failed to connect to the database")
         throw e
