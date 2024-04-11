@@ -321,7 +321,7 @@ function newinputrow(type, data) {
         }
     } else if (type === "alias") {
         input1.type = "text"
-        input1.name = "illustrator"
+        input1.name = "aliases"
         label1.innerHTML = "&nbsp;"
         div1.appendChild(label1)
         div1.appendChild(input1)
