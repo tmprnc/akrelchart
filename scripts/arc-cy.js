@@ -58,7 +58,6 @@ async function go() {
     await load();
     fuse = new Fuse(characters, fuseOptions)
     fusee = new Fuse(events, fuseOptions)
-    loadtext("load", "adding characters to view")
     cy.add(characters)
     cy.add(chartochar)
     cy.add(events)
@@ -67,14 +66,14 @@ async function go() {
     cy.$('[category = "chartoevent"]').hide()
     loadtext("load", "running layout")
     if (mobileCheck()) {
-        setTimeout(function(){
             loadtext("warn", "this will take a while on mobile devices")
-        }, 1000)
     }
-    cy.elements('[category != "events"][category != "chartoevent"]').layout({
-        name: 'cose',
-        animate: false
-    }).run()
+    setTimeout(function(){
+        cy.elements('[category != "events"][category != "chartoevent"]').layout({
+            name: 'cose',
+            animate: false
+        }).run()
+    }, 0)
 }
 
 cy.on('layoutstop', function(){
