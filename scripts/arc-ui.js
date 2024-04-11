@@ -407,7 +407,7 @@ function showdialog(id, data) {
                 case "characterform":
                     id = document.getElementById("illusdivs")
                     id.replaceChildren(id.children[0])
-                    ia = document.getElementById("aliasdivs")
+                    id = document.getElementById("aliasdivs")
                     id.replaceChildren(id.children[0])
                     fe["_key"].value = data.data("_key")
                     fe["name"].value = data.data("name")
