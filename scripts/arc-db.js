@@ -164,7 +164,8 @@ async function send(that) {
     fd.delete('romanized');
     // leave json parsing to the server since formdata can't store arrays
     fd.append('illustrator', JSON.stringify(merged));
-
+    fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
+    
     try {
         r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
             method: "POST",
