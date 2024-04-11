@@ -59,7 +59,7 @@ function wiperesults(id) {
 
 const fuseOptions = {
     threshold: 0.3,
-    keys: ['data.name', 'data._key']
+    keys: ['data.name', 'data._key', 'data.aliases']
 }
 
 bar = document.getElementById("searchbar")
