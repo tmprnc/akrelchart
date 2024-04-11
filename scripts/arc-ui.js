@@ -333,30 +333,6 @@ function newinputrow(type, data) {
     parentE.appendChild(div)
 }
 
-function dynamicnewinput(type) {
-    if (type === "illus") {
-        const div = document.createElement("div");
-        const input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "Illustrator";
-        div.appendChild(input);
-        const input2 = document.createElement("input");
-        input2.type = "text";
-        input2.placeholder = "Romanized";
-        div.appendChild(input2);
-        const button = document.createElement("button");
-        button.innerHTML = "Remove";
-        button.onclick = function() {
-            event.preventDefault();
-            div.remove();
-        }
-        div.appendChild(button);
-        return div;
-    } else if (type === "alias") {
-
-    }
-}
-
 // type: instance, association, mention, character, event
 function showdialog(id, data) {
     dialog = document.getElementById(id).firstElementChild
