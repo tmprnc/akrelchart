@@ -133,6 +133,10 @@ async function send(that) {
             err = document.getElementById("eerr")
             endpoint = "events"
             break;
+        case "characterform":
+            err = document.getElementById("cerr")
+            endpoint = "characters"
+            break;
         default:
             return;
     }
@@ -140,7 +144,26 @@ async function send(that) {
     const fd = new FormData(that)
     if (that.id === "eventform") {
         fd.set('completion', fd.has('completion') ? true : false)
+    } else if (that.id === "characterform") {
+        fd.set('global', fd.has('global') ? true : false)
+        fd.set('npc', fd.has('npc') ? true : false)
     }
+
+    let illustrators = fd.getAll('illustrator');
+    let romanized = fd.getAll('romanized');
+
+    let merged = illustrators.map((illustrator, index) => {
+        if (romanized[index]) {
+            return [illustrator, romanized[index]];
+        } else {
+            return illustrator;
+        }
+    });
+
+    fd.delete('illustrator');
+    fd.delete('romanized');
+    // leave json parsing to the server since formdata can't store arrays
+    fd.append('illustrator', JSON.stringify(merged));
 
     try {
         r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
@@ -163,6 +186,17 @@ async function send(that) {
                 } else if (b.completion == "false") {
                     b.completion = false
                 }
+            } else if (that.id === "characterform") {
+                if (b.global == "true") {
+                    b.global = true
+                } else if (b.global == "false") {
+                    b.global = false
+                }
+                if (b.npc == "true") {
+                    b.npc = true
+                } else if (b.npc == "false") {
+                    b.npc = false
+                }
             }
     
             if (cy.$id(b._id).data()) {
@@ -170,13 +204,17 @@ async function send(that) {
             } else {
                 cy.add({data: {...cyte(b), category: `${endpoint}`}})
             }
-            if (that.id !== "eventform") {
+            if (that.id !== "eventform" || that.id !== "characterform") {
                 goto(cy.$id(fd.get("_from")).data("_key"))
+            } else if (that.id === "characterform") {
+                // maybe i can just goto(b._key) but idk
+                goto(cy.$id(fd.get("_id")).data("_key"))
             }
         } else {
             err.innerHTML = await r.statusText.toLowerCase()
         }
     } catch (e) {
+        err.innerHTML = "error"
         err.innerHTML = await r.statusText.toLowerCase()
     }    
 }

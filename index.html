@@ -254,7 +254,7 @@
     </div>
 
     <div class="center" id="chard">
-        <form class="dialogform" id="characterform">
+        <form class="dialogform" id="characterform" onsubmit="send(this)">
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <nothing></nothing> <!-- parity with the other elements (hidden _key) -->
@@ -324,7 +324,7 @@
             </div>
             <br>
             <input type="submit" value="Add">
-            <p id="cerr"></p>
+            <p class="err" id="cerr"></p>
         </form>
     </div>
 
@@ -368,7 +368,7 @@
             </div>
             <br>
             <input type="submit" value="Add">
-            <p id="eerr"></p>
+            <p class="err" id="eerr"></p>
         </form>
     </div>
 
