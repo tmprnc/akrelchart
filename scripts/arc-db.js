@@ -205,13 +205,18 @@ async function send(that) {
             if (cy.$id(b._id).data()) {
                 cy.$id(b._id).data({...cyte(b), category: `${endpoint}`})
             } else {
-                cy.add({data: {...cyte(b), category: `${endpoint}`}})
+                newnode = cy.add({data: {...cyte(b), category: `${endpoint}`}})
+                if (that.id === "eventform") {
+                    fusee.add({data: {...cyte(b)}})
+                    newnode.hide()
+                } else if (that.id === "characterform") {
+                    fuse.add({data: {...cyte(b)}})
+                }
             }
             if (that.id !== "eventform" || that.id !== "characterform") {
-                goto(cy.$id(fd.get("_from")).data("_key"))
+                goto(b._key)
             } else if (that.id === "characterform") {
-                // maybe i can just goto(b._key) but idk
-                goto(cy.$id(fd.get("_id")).data("_key"))
+                goto(b._key)
             }
         } else {
             err.innerHTML = await r.statusText.toLowerCase()
