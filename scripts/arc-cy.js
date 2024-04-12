@@ -71,7 +71,10 @@ async function go() {
     setTimeout(function(){
         cy.elements('[category != "events"][category != "chartoevent"]').layout({
             name: 'cose',
-            animate: false
+            animate: false,
+            nodeOverlap: 8,
+            edgeElasticity: 48,
+            coolingFactor: 0.94,
         }).run()
     }, 0)
 }
