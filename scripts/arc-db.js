@@ -214,7 +214,7 @@ async function send(that) {
                 }
             }
             if (that.id !== "eventform" || that.id !== "characterform") {
-                goto(b._key)
+                goto(cy.$id(b.source).data("_key"))
             } else if (that.id === "characterform") {
                 goto(b._key)
             }
