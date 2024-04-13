@@ -147,24 +147,24 @@ async function send(that) {
     } else if (that.id === "characterform") {
         fd.set('global', fd.has('global') ? true : false)
         fd.set('npc', fd.has('npc') ? true : false)
+        let illustrators = fd.getAll('illustrator');
+        let romanized = fd.getAll('romanized');
+    
+        let merged = illustrators.map((illustrator, index) => {
+            if (romanized[index]) {
+                return [illustrator, romanized[index]];
+            } else {
+                return illustrator;
+            }
+        });
+    
+        fd.delete('illustrator');
+        fd.delete('romanized');
+        // leave json parsing to the server since formdata can't store arrays
+        fd.append('illustrator', JSON.stringify(merged));
+        fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
     }
 
-    let illustrators = fd.getAll('illustrator');
-    let romanized = fd.getAll('romanized');
-
-    let merged = illustrators.map((illustrator, index) => {
-        if (romanized[index]) {
-            return [illustrator, romanized[index]];
-        } else {
-            return illustrator;
-        }
-    });
-
-    fd.delete('illustrator');
-    fd.delete('romanized');
-    // leave json parsing to the server since formdata can't store arrays
-    fd.append('illustrator', JSON.stringify(merged));
-    fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
 
     try {
         r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
