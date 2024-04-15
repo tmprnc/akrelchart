@@ -46,6 +46,7 @@ function editeventbutton(evt) {
 	if (!loggedin) {
 		a.classList.add("none")
 	}
+    a.classList.add("icon")
 	a.classList.add("icon-editevent")
     a.href = '#'
     a.title = "Edit event"
@@ -148,6 +149,7 @@ function assocgen(edge, point, reverse) {
         event.preventDefault()
         showdialog("assocd", edge)
     }
+    li.appendChild(editeventbutton(evt))
     li.appendChild(a4)
     li.appendChild(delbutton(edge))
     return li
@@ -204,6 +206,7 @@ function mentiongen(edge, point, by) {
         event.preventDefault()
         showdialog("mentiond", edge)
     }
+    li.appendChild(editeventbutton(instance))
     li.appendChild(a4)
     li.appendChild(delbutton(edge))
     return li
