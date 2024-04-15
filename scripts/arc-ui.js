@@ -468,6 +468,7 @@ function closedialog() {
         a.classList.remove("activedialog")
         a.parentElement.classList.remove("focus")
         a.reset()
+        a.elements["_key"].removeAttribute("value")
     }
 }
 
