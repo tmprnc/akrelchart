@@ -40,6 +40,22 @@ function delbutton(edge) {
     return a
 }
 
+function editeventbutton(evt) {
+	a = document.createElement("a")
+	a.classList.add("admin")
+	if (!loggedin) {
+		a.classList.add("none")
+	}
+	a.classList.add("icon-editevent")
+    a.href = '#'
+    a.title = "Edit event"
+    a.onclick = function() {
+        event.preventDefault()
+        showdialog("eventd", evt)
+    }
+	return a
+}
+
 function instancegen(edge){// event, type, as) {
     let evt = cy.$id(edge.data("target"))
     type = edge.data("type")
@@ -74,20 +90,7 @@ function instancegen(edge){// event, type, as) {
         event.preventDefault()
         showdialog("instanced", edge)
     }
-    a3 = document.createElement("a")
-    a3.classList.add("admin")
-    if (!loggedin) {
-        a3.classList.add("none")
-    }
-    a3.classList.add("icon")
-    a3.classList.add("icon-editevent")
-    a3.href = '#'
-    a3.title = "Edit event"
-    a3.onclick = function() {
-        event.preventDefault()
-        showdialog("eventd", evt)
-    }
-    li.appendChild(a3)
+    li.appendChild(editeventbutton(evt))
     li.appendChild(a2)
     li.appendChild(delbutton(edge))
     return li
