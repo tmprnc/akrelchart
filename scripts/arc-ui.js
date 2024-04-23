@@ -479,3 +479,11 @@ function showpwchange() {
 function hidepwchange() {
     setvisibility(document.getElementById('pw'), "i")
 }
+
+function showabout() {
+    setvisibility(document.getElementById('about'), "v")
+}
+
+function hideabout() {
+    setvisibility(document.getElementById('about'), "i")
+}
