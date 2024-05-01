@@ -106,13 +106,14 @@ function assocgen(edge, point, reverse) {
     evt = cy.$id(edge.data("instance"))
     li = document.createElement("li")
     p1 = document.createElement("p")
+    p15 = document.createElement("p")
     if (itype.includes("%c")) {
             let [itype1, itype2] = itype.split("%c")
             p1.innerHTML = itype1
-            p15 = document.createElement("p")
             p15.innerHTML = itype2
     } else {
             p1.innerHTML = itype
+            p15 = undefined
     }
     img = document.createElement("img")
     img.src = `../images/icon/${target.data("_key")}.webp`
