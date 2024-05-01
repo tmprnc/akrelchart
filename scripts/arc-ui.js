@@ -106,7 +106,14 @@ function assocgen(edge, point, reverse) {
     evt = cy.$id(edge.data("instance"))
     li = document.createElement("li")
     p1 = document.createElement("p")
-    p1.innerHTML = itype
+    if (itype.includes("%c")) {
+            let [itype1, itype2] = itype.split("%c")
+            p1.innerHTML = itype1
+            p15 = document.createElement("p")
+            p15.innerHTML = itype2
+    } else {
+            p1.innerHTML = itype
+    }
     img = document.createElement("img")
     img.src = `../images/icon/${target.data("_key")}.webp`
     a = document.createElement("a")
@@ -125,6 +132,7 @@ function assocgen(edge, point, reverse) {
     li.appendChild(p1)
     li.appendChild(img)
     li.appendChild(a)
+	typeof p15 !== 'undefined' ? li.appendChild(p15) : true
     li.appendChild(p2)
     li.appendChild(a2)
     if (edge.data("url")) {
