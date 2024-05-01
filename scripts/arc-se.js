@@ -1,5 +1,5 @@
 document.addEventListener("keydown", function(event) {
-    if (event.key === "f" && event.ctrlKey) {
+    if ((event.key === "f" || event.key === "F") && event.ctrlKey) {
         event.preventDefault();
         popsearch()
     } else if (event.key === "Escape") {
