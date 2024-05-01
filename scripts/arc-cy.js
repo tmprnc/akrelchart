@@ -53,7 +53,8 @@ var cy = cytoscape({
 });
 
 
-var fuse 
+var fuse
+var fusee
 async function go() {
     await load();
     fuse = new Fuse(characters, fuseOptions)
