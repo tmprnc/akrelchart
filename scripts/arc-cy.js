@@ -68,13 +68,17 @@ async function go() {
     loadtext("load", "running layout")
     if (mobileCheck()) {
             loadtext("warn", "this will take a while on mobile devices")
-    }
+		    coolFactor = 0.93
+    } else {
+		coolFactor = 0.99
+	}
     setTimeout(function(){
         cy.elements('[category != "events"][category != "chartoevent"]').layout({
             name: 'cose',
             animate: false,
             boundingBox: {x1: 0, y1: 0, w: 10000, h: 10000},
             idealEdgeLength: 200,
+			coolingFactor: coolFactor
         }).run()
     }, 0)
 }
