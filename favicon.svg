@@ -19,6 +19,10 @@
       .cls-3 {
         stroke-width: 22px;
       }
+
+	  @media (prefers-color-scheme: light) {
+	    fill: #000;
+	  }
     </style>
   </defs>
   <g id="Layer_2-2" data-name="Layer 2">
