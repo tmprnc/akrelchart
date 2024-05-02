@@ -243,11 +243,15 @@ footer = document.getElementById("footer")
 restoreui = document.getElementById("restoreui")
 
 function setvisibility(e, v) {
-    // todo make this not shit
-    // i shouldn't have to do this but javascript wasn't
-    // supposed to be used like this anyway
-    e.classList.remove(`${e.id}_${v === "v" ? "i" : "v"}`)
-    e.classList.add(`${e.id}_${v === "v" ? "v" : "i"}`)
+	if ( v === "i" ) {
+		e.setAttribute("inert","")
+		e.classList.remove(`${e.id}_v`)
+		e.classList.add(`${e.id}_i`)
+	} else {
+		e.removeAttribute("inert")
+		e.classList.remove(`${e.id}_i`)
+		e.classList.add(`${e.id}_v`)
+	}
 }
 
 function collapse() {
@@ -354,6 +358,7 @@ function showdialog(id, data) {
     dialog = document.getElementById(id).firstElementChild
     closedialog()
     dialog.classList.add("activedialog")
+	dialog.removeAttribute("inert")
     dialog.parentElement.classList.add("focus")
     h1 = dialog.children[1]
     switch (dialog.id) {
@@ -478,6 +483,7 @@ function closedialog() {
         a.parentElement.classList.remove("focus")
         a.reset()
         a.elements["_key"].removeAttribute("value")
+		a.setAttribute("inert", "")
     }
 }
 

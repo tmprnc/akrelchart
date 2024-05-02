@@ -37,7 +37,7 @@
     </div>
 
 
-    <div id="search" class="search_i">
+    <div id="search" class="search_i" inert>
         <form autocomplete="off">
             <input type="search" id="searchbar" oninput="auto('result', true, 'characters')">
             <ul id="result" class="result">
@@ -48,7 +48,7 @@
 
     <div id="cy"></div>
 
-    <div id="popoutcontainer" class="popoutcontainer_i">
+    <div id="popoutcontainer" class="popoutcontainer_i" inert>
         <img src="images/faction/blank.webp"> 
         <div id="popout">
             <a href="#" class="hiddenlink" id="collapse" onclick="collapse()">collapse &Gt;</a>
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <div id="login" class="center login_i">
+    <div id="login" class="center login_i" inert>
         <form id="loginform" onsubmit="login(this)">
             <button type="button" class="close" onclick="hidelogin()">╳</button>
             <label>username</label>
@@ -96,7 +96,7 @@
         </form>
     </div>
 
-    <div class="center ays_i focus" id="ays">
+    <div class="center ays_i focus" id="ays" inert>
         <div class="dialog">
             <p>Are you sure you want to delete
             <span class="err" id="areyoudel"></span>?</p>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="center" id="instanced">
-        <form class="dialogform" id="instanceform" onsubmit="send(this)">
+        <form class="dialogform" id="instanceform" onsubmit="send(this)" inert>
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <input type="hidden" name="_key">
@@ -152,7 +152,7 @@
     </div>
 
     <div class="center" id="assocd">
-        <form class="dialogform" id="associationform" onsubmit="send(this)">
+        <form class="dialogform" id="associationform" onsubmit="send(this)" inert>
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <input type="hidden" name="_key">
@@ -210,7 +210,7 @@
     </div>
 
     <div class="center" id="mentiond">
-        <form class="dialogform" id="mentionform" onsubmit="send(this)">
+        <form class="dialogform" id="mentionform" onsubmit="send(this)" inert>
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <input type="hidden" name="_key">
@@ -255,7 +255,7 @@
     </div>
 
     <div class="center" id="chard">
-        <form class="dialogform" id="characterform" onsubmit="send(this)">
+        <form class="dialogform" id="characterform" onsubmit="send(this)" inert>
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <nothing></nothing> <!-- parity with the other elements (hidden _key) -->
@@ -330,7 +330,7 @@
     </div>
 
     <div class="center" id="eventd">
-        <form class="dialogform" id="eventform" onsubmit="send(this)">
+        <form class="dialogform" id="eventform" onsubmit="send(this)" inert>
             <button type="button" class="close" onclick="closedialog()">╳</button>
             <h1></h1>
             <nothing></nothing> <!-- parity with the other elements (hidden _key) -->
@@ -373,7 +373,7 @@
         </form>
     </div>
 
-    <div id="pw" class="center pw_i">
+    <div id="pw" class="center pw_i" inert>
         <form id="pwform" onsubmit="changepw(this)">
             <button type="button" class="close" onclick="hidepwchange()">╳</button>
             <label>new password</label>
@@ -386,7 +386,7 @@
         </form>
     </div>
 
-    <div class="center about_i" id="about">
+    <div class="center about_i" id="about" inert>
         <div class="dialog">
             <button type="button" class="close" onclick="hideabout()">╳</button>
             <pre>Arknights Relations Chart -- version 1
@@ -412,7 +412,7 @@ with help from my friends
         </div>
     </div>
 
-    <div class="restoreui_i" id="restoreui">
+    <div class="restoreui_i" id="restoreui" inert>
         <a href="#" class="hiddenlink" onclick="unhide()">unhide</a>
     </div>
 
