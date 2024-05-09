@@ -401,6 +401,7 @@ function showdialog(id, data) {
                     fe["_from"].value = data.data("source")
                     fe["_to"].value = data.data("target")
                     fe["type"].value = data.data("type")
+				    fe["instancedetail"].value = data.data("instancedetail")
                     fe["sprite"].value = data.data("sprite")
                     break;
                 case "associationform":
@@ -413,6 +414,7 @@ function showdialog(id, data) {
                             r.checked = true
                         }
                     }
+				    fe["obsolete"].checked = data.data("obsolete")
                     fe["subtype"].value = data.data("subtype")
                     fe["subtype_reverse"].value = data.data("subtype_reverse")
                     fe["instance"].value = data.data("instance")
