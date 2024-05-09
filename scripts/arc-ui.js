@@ -68,6 +68,7 @@ function instancegen(edge){// event, type, as) {
     a.href = evt.data("url")
     a.setAttribute("target", "_blank")
     a.innerHTML = evt.data("name")
+	a.title = edge.data("instancedetail")
     li.appendChild(p1)
     li.appendChild(a)
     if (_as !== "default") {
