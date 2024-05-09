@@ -105,6 +105,9 @@ function assocgen(edge, point, reverse) {
     }
     evt = cy.$id(edge.data("instance"))
     li = document.createElement("li")
+	if (edge.data("obsolete")) {
+		li.classList.add("obsolete")
+	}
     p1 = document.createElement("p")
     p15 = document.createElement("p")
     if (itype.includes("%c")) {

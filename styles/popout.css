@@ -119,6 +119,10 @@ h3 {
     list-style-type: none;
 }
 
+.obsolete {
+	opacity: 0.5;
+}
+
 #list > li {
     padding-left: 2rem;
     background-repeat: no-repeat;
