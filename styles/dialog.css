@@ -183,10 +183,6 @@ label {
     align-items: center;
 }
 
-.row input {
-    width: 25%;
-}
-
 .row div {
     width: 100%;
 }
