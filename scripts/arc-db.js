@@ -144,7 +144,9 @@ async function send(that) {
     const fd = new FormData(that)
     if (that.id === "eventform") {
         fd.set('completion', fd.has('completion') ? true : false)
-    } else if (that.id === "characterform") {
+    } else if (that.id === "associationform") {
+		fd.set('obsolete', fd.has('obsolete') ? true : false)
+	} else if (that.id === "characterform") {
         fd.set('global', fd.has('global') ? true : false)
         fd.set('npc', fd.has('npc') ? true : false)
         let illustrators = fd.getAll('illustrator');
@@ -187,7 +189,13 @@ async function send(that) {
                 } else if (b.completion == "false") {
                     b.completion = false
                 }
-            } else if (that.id === "characterform") {
+            } else if (that.id === "associationform") {
+				if (b.obsolete == "true") {
+					b.obsolete = true
+				} else if (b.obsolete == "false") {
+					b.obsolete = false
+				}
+			} else if (that.id === "characterform") {
                 if (b.global == "true") {
                     b.global = true
                 } else if (b.global == "false") {
