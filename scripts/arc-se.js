@@ -5,7 +5,13 @@ document.addEventListener("keydown", function(event) {
             popsearch()
         }
     } else if (event.key === "Escape") {
-        collapse()
+        if(document.querySelector(".activedialog")) {
+            closedialog()
+        } else if (document.querySelector(".search_v")) {
+            unpopsearch()
+        } else {
+            collapse()
+        }
     }
 })
 
