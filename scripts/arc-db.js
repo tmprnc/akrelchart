@@ -209,9 +209,16 @@ async function send(that) {
                 b.illustrator = JSON.parse(b.illustrator)
                 b.aliases = JSON.parse(b.aliases)
             }
-    
-            if (cy.$id(b._id).data()) {
-                cy.$id(b._id).data({...cyte(b), category: `${endpoint}`})
+
+            prevnode = cy.$id(b._id)
+            if (prevnode.data()) {
+                prevnode.data({...cyte(b), category: `${endpoint}`})
+                if (prevnode.data("source") !== b._from) {
+                    prevnode.move({ source: b._from })
+                }
+                if (prevnode.data("target") !== b._to) {
+                    prevnode.move({ target: b._to })
+                }
             } else {
                 newnode = cy.add({data: {...cyte(b), category: `${endpoint}`}})
                 if (that.id === "eventform") {
