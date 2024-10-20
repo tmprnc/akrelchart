@@ -72,7 +72,7 @@ async function login(form) {
             body: data,
             credentials: "include"
         })
-    
+
         if (r.ok) {
             setvisibility(form.parentElement, 'i')
             document.querySelector('#loginform > input[type="password"]').value = ""
@@ -82,7 +82,7 @@ async function login(form) {
                 ele.classList.toggle('none')
             })
             loggedin = true
-        } 
+        }
     } catch (e) {
         loadtext("lerr", await r.statusText.toLowerCase())
     }
@@ -115,7 +115,7 @@ function charvalid(input) {
 
 async function send(that) {
     event.preventDefault();
-    
+
     switch (that.id) {
         case "instanceform":
             err = document.getElementById("ierr")
@@ -143,28 +143,29 @@ async function send(that) {
 
     const fd = new FormData(that)
     if (that.id === "eventform") {
-        fd.set('completion', fd.has('completion') ? true : false)
+      fd.set('completion', fd.has('completion') ? true : false)
     } else if (that.id === "associationform") {
-		fd.set('obsolete', fd.has('obsolete') ? true : false)
-	} else if (that.id === "characterform") {
-        fd.set('global', fd.has('global') ? true : false)
-        fd.set('npc', fd.has('npc') ? true : false)
-        let illustrators = fd.getAll('illustrator');
-        let romanized = fd.getAll('romanized');
-    
-        let merged = illustrators.map((illustrator, index) => {
-            if (romanized[index]) {
-                return [illustrator, romanized[index]];
-            } else {
-                return illustrator;
-            }
-        });
-    
-        fd.delete('illustrator');
-        fd.delete('romanized');
-        // leave json parsing to the server since formdata can't store arrays
-        fd.append('illustrator', JSON.stringify(merged));
-        fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
+      fd.set('obsolete', fd.has('obsolete') ? true : false)
+      fd.set('throughout', fd.has('throughout') ? true : false)
+    } else if (that.id === "characterform") {
+      fd.set('global', fd.has('global') ? true : false)
+      fd.set('npc', fd.has('npc') ? true : false)
+      let illustrators = fd.getAll('illustrator');
+      let romanized = fd.getAll('romanized');
+
+      let merged = illustrators.map((illustrator, index) => {
+        if (romanized[index]) {
+          return [illustrator, romanized[index]];
+        } else {
+          return illustrator;
+        }
+      });
+
+      fd.delete('illustrator');
+      fd.delete('romanized');
+      // leave json parsing to the server since formdata can't store arrays
+      fd.append('illustrator', JSON.stringify(merged));
+      fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
     }
 
 
@@ -190,12 +191,17 @@ async function send(that) {
                     b.completion = false
                 }
             } else if (that.id === "associationform") {
-				if (b.obsolete == "true") {
-					b.obsolete = true
-				} else if (b.obsolete == "false") {
-					b.obsolete = false
-				}
-			} else if (that.id === "characterform") {
+        if (b.obsolete == "true") {
+          b.obsolete = true
+        } else if (b.obsolete == "false") {
+          b.obsolete = false
+        }
+        if (b.throughout == "true") {
+          b.throughout = true
+        } else if (b.throughout == "false") {
+          b.throughout = false
+        }
+      } else if (that.id === "characterform") {
                 if (b.global == "true") {
                     b.global = true
                 } else if (b.global == "false") {
@@ -239,7 +245,7 @@ async function send(that) {
     } catch (e) {
         err.innerHTML = "error"
         err.innerHTML = await r.statusText.toLowerCase()
-    }    
+    }
 }
 
 async function del(confirm, edge) {

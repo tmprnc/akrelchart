@@ -121,7 +121,7 @@ cy.on('select', 'node', async function(event){
     popoutc.children[1].scrollTop = 0
     popout = document.getElementById('popout').children
     popout[1].innerHTML = node.data('name')
-    
+
     // forgot why i had to do this
     try {
         const r = await fetch(`../images/faction/${node.data('sub-faction')}.webp`)
@@ -180,7 +180,7 @@ cy.on('select', 'node', async function(event){
 cy.on('unselect', 'node', function(event){
     node = event.target
 
-    // JANK: on collapse this list is 
+    // JANK: on collapse this list is
     // emptied before the animation finishes
     list = document.getElementById("list")
     while (list.childNodes.length > 4) { // why 4????

@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="./styles/dialog.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.basic.min.js"></script>
-    
 </head>
 
 <body>
@@ -47,14 +46,14 @@
             <input type="search" id="searchbar" oninput="auto('result', true, 'characters')">
             <ul id="result" class="result">
             </ul>
-        </form> 
+        </form>
         <a href="#" onclick="unpopsearch()">cancel</a>
     </div>
 
     <div id="cy"></div>
 
     <div id="popoutcontainer" class="popoutcontainer_i" inert>
-        <img src="images/faction/blank.webp"> 
+        <img src="images/faction/blank.webp">
         <div id="popout">
             <a href="#" class="hiddenlink" id="collapse" onclick="collapse()">collapse &Gt;</a>
             <h1></h1>
@@ -141,7 +140,7 @@
             <div>
                 <div>
                     <label>Instance<span class="req"> *</span></label>
-                    <input type="text" name="_to" 
+                    <input type="text" name="_to"
                     oninput="auto('r_insdiage', false, 'events', 2); charvalid(this)"
                     required pattern="^(events\/)+(\w|-){1,128}">
                     <ul class="result" id="r_insdiage"></ul>
@@ -190,8 +189,12 @@
                     <input type="radio" name="type" value="interaction" id="r2" required>
                     <label for="r2">Interaction</label>
                 </div>
-                <input type="checkbox" name="obsolete" id="c4">
-                <label for="c4">Is this association obsolete?</label>
+                <div class="row"> <!-- apparently this makes no difference. wonderful -->
+                    <input type="checkbox" name="obsolete" id="c4">
+                    <label for="c4">Is this association obsolete?</label>
+                    <input type="checkbox" name="throughout" id="c5">
+                    <label for="c5">Does this association occur throughout the event?</label>
+                </div>
             </div>
             <div>
                 <div>
@@ -232,8 +235,8 @@
             <div>
                 <div>
                     <label>From<span class="req"> *</span></label>
-                    <input type="text" name="_from" 
-                    oninput="auto('r_mendiag1', false, 'characters', 4); charvalid(this)" 
+                    <input type="text" name="_from"
+                    oninput="auto('r_mendiag1', false, 'characters', 4); charvalid(this)"
                     required pattern="^(characters\/)+(\w|-){1,128}">
                     <ul class="result" id="r_mendiag1"></ul>
                 </div>
