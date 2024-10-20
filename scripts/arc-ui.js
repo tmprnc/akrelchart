@@ -126,10 +126,10 @@ function assocgen(edge, point, reverse) {
     a.href = '#'
     a.onclick = function() {
         event.preventDefault();
-        goto(target.data("_key"))
+      goto(target.data("_key"))
     }
     p2 = document.createElement("p")
-    p2.innerHTML = edge.throughout ? " in " : " throughout "
+    p2.innerHTML = edge.data("throughout") ? " throughout " : " in "
     a2 = document.createElement("a")
     a2.innerHTML = evt.data("name")
     a2.href = evt.data("url")
