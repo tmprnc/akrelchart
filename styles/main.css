@@ -22,9 +22,11 @@ a:hover {
 
 body {
     margin: 0;
-    background-color: black;
+    background-color: #d9d9d9;
+    background-image: url(../images/background.svg);
     overflow-x: hidden;
     overflow-y: hidden;
+    background-size: cover;
 }   
 
 div {
@@ -38,21 +40,66 @@ pre {
 #cy {
     height: 100vh;
     width: 100vw;
-    background-color: #d9d9d9;
+    background: transparent;
+    background-size: cover;
 }
 
+@-webkit-keyframes bg-scrolling-reverse {
+    100% {
+      background-position: 80px 160px;
+    }
+  }
+  @-moz-keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 80px 160px;
+    }
+  }
+  @-o-keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 80px 160px;
+    }
+  }
+  @keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 80px 160px;
+    }
+  }
+
+  #cy {
+    background: url("../images/graphy.webp") repeat 0 0;
+    -webkit-animation: bg-scrolling-reverse 30s infinite;
+    /* Safari 4+ */
+    -moz-animation: bg-scrolling-reverse 30s infinite;
+    /* Fx 5+ */
+    -o-animation: bg-scrolling-reverse 30s infinite;
+    /* Opera 12+ */
+    animation: bg-scrolling-reverse 30s infinite;
+    /* IE 10+ */
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }  
+
 #footer {
+    font-size: 1.4rem;
     position: absolute;
     left: 1%;
     right: 1%;
-    width: auto;
-    padding: 6px;
-    box-shadow: 0 4px 4px gray, 0 0 2px gray;
+    width: fit-content;
     border-radius: 2px;
-    background-color: white;
     display: flex;
-    justify-content: space-between;
     z-index: 2;
+    text-align: center;
+    justify-content: space-between;
+}
+
+#banner {
+    max-height: 71.59px;
+}
+
+#banner:hover {
+    content: url("../images/banner-awake.png");
 }
 
 #footer a {
@@ -63,11 +110,88 @@ pre {
     margin-block: 0;
 }
 
-#footer > div {
-    height: 12pt;
-    width: 50%;
+#footer > nav {
+    flex-grow: 1;
+    height: auto;
     display: flex;
-    gap: 6px;
+    gap: 6px
+}
+
+.ftr_sub {
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25); 
+}
+
+.ftr_btn { 
+    padding: 12px;
+    display: flex;
+    color: white;
+    font-family: "NuberNext Condensed";
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    transition: background 0.8s;
+}
+
+.btn-text:after {
+    border-left: 2px black;
+}
+
+.btn_text:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn_text {
+    font-family: "NuberNext Condensed";
+    font-size: 1.5rem;
+    padding: 10px;
+    color: white;
+}
+
+.ftr_btn:hover {
+    color: white;
+    background: #0796D7 radial-gradient(circle, transparent 1%, #0796D7 1%) center/15000%;
+}
+
+.ftr_btn:active {
+    background-color: #008ed0;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+#ftr_gen {
+    background: rgba(25,25,26,0.9);
+    background: linear-gradient(90deg, rgba(25,25,26,0.9) 0%, rgba(49,49,49,0.9) 59%);
+}
+
+#ftr_usr {
+    background: rgba(62,62,62,0.9);
+    background: linear-gradient(90deg, rgba(62, 62, 62, 0.9) 0%, rgba(83, 83, 83, 0.9) 59%);
+}
+
+#ftr_admin {
+    background: rgba(7, 150, 215,0.9);
+}
+
+
+
+#loginstr {
+    font-family: "NuberNext Condensed";
+    color: white;
+    padding: 10px;
+}
+
+#username {
+    background: white;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: black;
+    font-family: "Bender";  
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
 }
 
 #footer > div:first-child {
@@ -84,7 +208,7 @@ pre {
 }
 
 .footer_i {
-    bottom: -6%;
+    bottom: -10%;
     animation: slidedown 0.4s ease-in-out;
 }
 
@@ -93,12 +217,12 @@ pre {
         bottom: 2%;
     }
     100% {
-        bottom: -6%;
+        bottom: -10%;
     }
 }
 @keyframes slideup {
     0% {
-        bottom: -6%;
+        bottom: -10%;
     }
     100% {
         bottom: 2%;

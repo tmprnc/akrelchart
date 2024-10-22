@@ -50,6 +50,7 @@
         <a href="#" onclick="unpopsearch()">cancel</a>
     </div>
 
+    <div id="graph"></div>
     <div id="cy"></div>
 
     <div id="popoutcontainer" class="popoutcontainer_i" inert>
@@ -417,18 +418,19 @@ with help from my friends
         </div>
     </div>
     <div class="footer_v" id="footer">
-        <div>
-            <a href="#" onclick="hide()">hide</a>
-            <a href="#" onclick="popsearch()">search</a>
-            <a href="#" onclick="toggletextsize()">toggle text size</a>
-        </div>
-        <div>
-            <p id="loginstr" class="admin none">logged in as <span id="username">guest</span></p>
-            <a href="#" onclick="showpwchange()" id="pwa" class="admin none">change password</a>
-            <a href="#" onclick="logout()" id="logout" class="admin none">logout</a>
-            <a href="#" onclick="showlogin()" id="logina" class="admin">edit</a>
-            <a href="#" onclick="showabout()">about</a>
-        </div>
+        <nav class="ftr_sub" id="ftr_gen">
+            <img id="banner" src="./images/banner.png">
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="hide()">hide</a></div>
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="popsearch()">search</a></div>
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="toggletextsize()">text size</a></div>
+        </nav>
+        <nav class="ftr_sub" id="ftr_usr">
+            <div id="loginstr" class="admin none">logged in as <span id="username">guest</span></div>
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="showpwchange()" id="pwa" class="admin none">change password</a></div>
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="logout()" id="logout" class="admin none">logout</a></div>
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="showlogin()" id="logina" class="admin">edit</a></div>
+            <div class="ftr_btn"><a href="#" class="btn_text" onclick="showabout()">about</a></div>
+        </nav>
     </div>
 
     <div class="restoreui_i" id="restoreui" inert>
