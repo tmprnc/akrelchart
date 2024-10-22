@@ -57,7 +57,7 @@
         <img src="images/faction/blank.webp">
         <div id="popout">
             <a href="#" class="hiddenlink" id="collapse" onclick="collapse()">collapse &Gt;</a>
-            <h1></h1>
+            <h1 class="popout_name"></h1>
             <img src="./images/faction/blank.webp">
             <ul id="list">
                 <li></li>
@@ -65,23 +65,23 @@
             </ul>
             <a href="#" class="admin none" onclick="showdialog('chard', cy.$(':selected')[0])">edit properties</a>
             <div>
-                <h2>INSTANCES</h2>
+                <h2 class="popout_section">INSTANCES</h2>
                 <ul id="instancelist"></ul>
                 <a href="#" class="admin none" onclick="showdialog('instanced', cy.$(':selected')[0])">add instance</a>
             </div>
             <div>
-                <h2>ASSOCIATIONS</h2>
-                <h3>Relations</h3>
+                <h2 class="popout_section">ASSOCIATIONS</h2>
+                <h3 class="popout_interact">Relations</h3>
                 <ul id="relations"></ul>
-                <h3>Interactions</h3>
+                <h3 class="popout_interact">Interactions</h3>
                 <ul id="interactions"></ul>
                 <a href="#" class="admin none" onclick="showdialog('assocd', cy.$(':selected')[0])">add association</a>
             </div>
             <div>
-                <h2>REFERENCES</h2>
-                <h3>Mentioned</h3>
+                <h2 class="popout_section">REFERENCES</h2>
+                <h3 class="popout_interact">Mentioned</h3>
                 <ul id="mentionby"></ul>
-                <h3>Mentions</h3>
+                <h3 class="popout_interact">Mentions</h3>
                 <ul id="mentions"></ul>
                 <a href="#" class="admin none" onclick="showdialog('mentiond', cy.$(':selected')[0])">add mention</a>
             </div>
