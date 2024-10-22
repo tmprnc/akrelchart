@@ -44,40 +44,16 @@ pre {
     background-size: cover;
 }
 
-@-webkit-keyframes bg-scrolling-reverse {
-    100% {
-      background-position: 80px 160px;
-    }
-  }
-  @-moz-keyframes bg-scrolling-reverse {
+
+@keyframes bg-scrolling-reverse {
     100% {
         background-position: 80px 160px;
     }
-  }
-  @-o-keyframes bg-scrolling-reverse {
-    100% {
-        background-position: 80px 160px;
-    }
-  }
-  @keyframes bg-scrolling-reverse {
-    100% {
-        background-position: 80px 160px;
-    }
-  }
+}
 
   #cy {
     background: url("../images/graphy.webp") repeat 0 0;
-    -webkit-animation: bg-scrolling-reverse 30s infinite;
-    /* Safari 4+ */
-    -moz-animation: bg-scrolling-reverse 30s infinite;
-    /* Fx 5+ */
-    -o-animation: bg-scrolling-reverse 30s infinite;
-    /* Opera 12+ */
     animation: bg-scrolling-reverse 30s infinite;
-    /* IE 10+ */
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-    -o-animation-timing-function: linear;
     animation-timing-function: linear;
   }  
 
