@@ -8,6 +8,95 @@
     src: url(../fonts/Visitor.woff2);
 }
 
+@font-face {
+    font-family: 'Bender';
+    src: local('Bender'),
+    url(../fonts/Bender.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bender';
+    src: local('Bender Bold'), local('Bender-Bold'),
+    url(../fonts/Bender-Bold.woff2) format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans UltraLight'), local('Novecentosans-UltraLight'),
+    url(../fonts/Novecentosans-UltraLight.woff2) format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans UltraBold'), local('Novecentosans-UltraBold'),
+        url(../fonts/Novecentosans-UltraBold.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans Light'), local('Novecentosans-Light'),
+        url(../fonts/Novecentosans-Light.woff2) format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans Bold'), local('Novecentosans-Bold'),
+        url(../fonts/Novecentosans-Bold.woff2) format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans Book';
+    src: local('Novecento sans Book'), local('Novecentosans-Book'),
+        url(../fonts/Novecentosans-Book.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans Normal'), local('Novecentosans-Normal'),
+        url(../fonts/Novecentosans-Normal.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans Medium'), local('Novecentosans-Medium'),
+        url(../fonts/Novecentosans-Medium.woff2) format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Novecento sans';
+    src: local('Novecento sans DemiBold'), local('Novecentosans-DemiBold'),
+        url(../fonts/Novecentosans-DemiBold.woff2) format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
 p, a {
     font-family: "NuberNext Condensed", "Segoe UI", sans-serif;
 }
@@ -53,7 +142,7 @@ pre {
 
   #cy {
     background: url("../images/graphy.webp") repeat 0 0;
-    animation: bg-scrolling-reverse 30s infinite;
+    animation: bg-scrolling-reverse 25s infinite;
     animation-timing-function: linear;
   }  
 
