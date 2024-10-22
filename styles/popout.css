@@ -23,8 +23,9 @@
 }
 
 #popout {
-    background-color: #eee;
-    box-shadow: 0 4px 4px gray;
+    background-color: rgba(238, 238, 238, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     border-radius: 2px;
     position: absolute;
     width: 100%;
@@ -47,7 +48,6 @@
 }
 
 #popout > div {
-    border-top: 2px darkgray solid;
     display: flex;
     flex-direction: column;
 }
@@ -61,29 +61,38 @@
     align-self: unset;
 }
 
-h1 {
-    font-family: "NuberNext Condensed";
+.popout_name {
+    font-family: "Novecento Sans";
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
     font-size: 36pt;
-    line-height: 24pt;
+    line-height: 30pt;
     margin: 18pt 0;
     z-index: 1;
+    float: right;
+    width: 70%;
+    color: #3b3b3b;
 }
 
-h2 {
+.popout_section {
     font-family: "NuberNext Condensed";
-    padding: 0 4px;
+    padding: 8px;
+    padding-bottom: 5px;
     margin: -12px 0 0 0;
-    width: fit-content;
+    width: 100%;
     align-self: center;
-    background-color: #eee;
+    background-color: rgba(59, 59, 59, 0.75);
+    color: white;
+    letter-spacing: 0.06em;
 }
 
-h3 {
-    font-family: "NuberNext Condensed";
+.popout_interact {
+    font-family: "Bender";
+    letter-spacing: -0.5px;
     margin: 8pt 0;
     padding: 0 4px;
     width: fit-content;
-    background-color: #eee;
+    text-transform: uppercase;
 }
 
 #popout > div li {
