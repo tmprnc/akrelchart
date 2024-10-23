@@ -8,6 +8,10 @@
     touch-action: none;
 }
 
+#ptilop {
+    max-height: 62px;
+}
+
 .loading_v {
     background-color: black;
     opacity: 1;
