@@ -129,7 +129,7 @@ function assocgen(edge, point, reverse) {
       goto(target.data("_key"))
     }
     p2 = document.createElement("p")
-    p2.innerHTML = edge.data("throughout") ? " throughout " : " in "
+    p2.innerHTML = edge.data("connective") ?? "in"
     a2 = document.createElement("a")
     a2.innerHTML = evt.data("name")
     a2.href = evt.data("url")
