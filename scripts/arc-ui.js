@@ -128,18 +128,20 @@ function assocgen(edge, point, reverse) {
         event.preventDefault();
       goto(target.data("_key"))
     }
-    p2 = document.createElement("p")
-    p2.innerHTML = edge.data("connective") ?? "in"
-    a2 = document.createElement("a")
-    a2.innerHTML = evt.data("name")
-    a2.href = evt.data("url")
-    a2.setAttribute("target", "_blank")
     li.appendChild(p1)
     li.appendChild(img)
     li.appendChild(a)
-	typeof p15 !== 'undefined' ? li.appendChild(p15) : true
-    li.appendChild(p2)
-    li.appendChild(a2)
+    typeof p15 !== 'undefined' ? li.appendChild(p15) : true
+    if (edge?.data("connective") !== "implicit") {
+        p2 = document.createElement("p")
+        p2.innerHTML = edge.data("connective") ?? "in"
+        a2 = document.createElement("a")
+        a2.innerHTML = evt.data("name")
+        a2.href = evt.data("url")
+        a2.setAttribute("target", "_blank")
+        li.appendChild(p2)
+        li.appendChild(a2)
+    }
     if (edge.data("url")) {
         a3 = document.createElement("a")
         a3.classList.add("icon")
