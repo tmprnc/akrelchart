@@ -8,9 +8,6 @@
     touch-action: none;
 }
 
-#ptilop {
-    max-height: 62px;
-}
 
 .loading_v {
     background-color: black;
@@ -25,22 +22,27 @@
     animation: l_fadeout 2s cubic-bezier(0.55, 0.09, 0.68, 0.53);
 }
 
+#loading > div {
+    align-items: center;
+}
+
 #loading p {
-    width: 175px;
+    width: 350px;
     color: #568eff;
     font-family: "Visitor";
+    font-size: 32px;
     padding: 0;
     text-align: center;
 }
 
 /* i shouldn't have to do this */
 #l1 {
-    letter-spacing: 11px;
+    letter-spacing: 22.5px;
     margin: 0;
 }
 
 #l2 {
-    letter-spacing: 18px;
+    letter-spacing: 36.5px;
     margin: -6px 0 0;
 }
 
@@ -58,4 +60,26 @@
         opacity: 0;
         z-index: 0;
     }
+}
+
+@media (max-width: 1800px) or (max-height: 750px) {
+
+#loading p {
+    width: 175px;
+    font-size: 16px;
+}
+
+#ptilop {
+    max-height: 62px;
+}
+
+#l1 {
+    letter-spacing: 11px;
+}
+
+#l2 {
+    letter-spacing: 18px;
+    margin: -2px 0 0;
+}
+
 }
