@@ -1,0 +1,22 @@
+/* Generic colors */
+
+/* NAVBAR COLORS */
+/* General area (ftr_gen) */
+:root {
+    --gen1: 25,25,26;
+    --gen2: 49,49,49;
+    --btn-hvr: #0796D7;
+    --btn-active: #008ed0;
+    --btn-text: white;
+}
+
+/* User area (ftr_usr), (ftr_admin) */
+:root {
+    --usr1: 62,62,62;
+    --usr2: 83,83,83;
+    --adm1: 7,150,215;
+    --adm2: 22,151,211;
+    --adm-hvr: #f7fcfd;
+    --adm-active: #d2f8ff;
+    --adm-hvr-text: black;
+}
