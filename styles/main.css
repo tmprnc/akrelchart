@@ -231,12 +231,12 @@ pre {
     background: linear-gradient(90deg, rgba(var(--gen1),0.9) 0%, rgba(var(--gen2),0.9) 59%);
 }
 
-#ftr_usr {
+.ftr_usr {
     background: rgba(var(--usr1),0.9);
     background: linear-gradient(90deg, rgba(var(--usr1),0.9) 0%, rgba(var(--usr2),0.9) 59%);
 }
 
-#ftr_usr > *:first-child {
+.ftr_usr > *:first-child {
     margin-left: 0.4rem
 }
 

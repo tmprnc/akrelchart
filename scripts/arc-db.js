@@ -81,6 +81,7 @@ async function login(form) {
             document.querySelectorAll('.admin').forEach((ele) => {
                 ele.classList.toggle('none')
             })
+            document.querySelector('.ftr_usr').classList.toggle('ftr_admin')
             loggedin = true
         }
     } catch (e) {
@@ -100,6 +101,7 @@ async function logout() {
         document.querySelectorAll('.admin').forEach((ele) => {
             ele.classList.toggle('none')
         })
+        document.querySelector('.ftr_usr').classList.toggle('ftr_admin')
         loggedin = false
     }
 }
