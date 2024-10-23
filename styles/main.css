@@ -274,7 +274,7 @@ pre {
 #loginstr {
     padding: 12px;
     display: flex;
-    color: (--btn-text);
+    color: var(--btn-text);
     font-family: "NuberNext Condensed";
     height: 100%;
     justify-content: center;
