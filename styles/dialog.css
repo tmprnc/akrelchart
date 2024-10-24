@@ -1,255 +1,269 @@
 .center {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 28px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 28px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .login_v {
-    opacity: 1;
-    z-index: 3;
+  opacity: 1;
+  z-index: 3;
 }
 
 .login_i {
-    opacity: 0;
-    z-index: -1;
+  opacity: 0;
+  z-index: -1;
 }
 
-.center > form, .center > .dialog {
-    position: relative;
-    pointer-events: initial;
-    border: 2px solid darkgray;
-    border-radius: 3px;
-    background-color: white;
-    padding: 12px;
+.center>form,
+.center>.dialog {
+  position: relative;
+  pointer-events: initial;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  background-color: white;
+  padding: 12px;
 }
 
-#login > form {
-    width: 180px;
-    height: 150px;
+#login>form {
+  width: 180px;
+  height: 150px;
 }
 
 
 #login input[type=submit] {
-    border: 0px;
-    background-color: white;
-    color: #568eff;
-    text-decoration: underline;
-    font-size: 12pt;
-    margin-top: 18px;
-    cursor: pointer;
+  border: 0px;
+  background-color: white;
+  color: #568eff;
+  text-decoration: underline;
+  font-size: 12pt;
+  margin-top: 18px;
+  cursor: pointer;
 }
 
 #login input[type=submit]:hover {
-    color: #0037ff;
+  color: #0037ff;
 }
 
 .err {
-    font-family: sans-serif;
-    font-size: 9pt;
-    width: fit-content;
-    color: red;
+  font-family: sans-serif;
+  font-size: 9pt;
+  width: fit-content;
+  color: red;
 }
 
 #lerr {
-    position: relative;
-    top: -28px;
-    left: 110px;
-    text-align: end;
+  position: relative;
+  top: -28px;
+  left: 110px;
+  text-align: end;
 }
 
-#ierr, #aerr, #merr {
-    margin: 4px 0;
-    width: 100%;
-    text-align: center;
+#ierr,
+#aerr,
+#merr {
+  margin: 4px 0;
+  width: 100%;
+  text-align: center;
 }
 
 .close {
-    position: absolute;
-    justify-self: end;
-    top: 6px;
-    right: 6px;
-    font-size: 8pt;
-    color: red;
-    border: 0px;
-    background-color: #0000;
-    cursor: pointer;
+  position: absolute;
+  justify-self: end;
+  top: 6px;
+  right: 6px;
+  font-size: 8pt;
+  color: red;
+  border: 0px;
+  background-color: #0000;
+  cursor: pointer;
 }
 
 label {
-    display: block;
-    margin: 10px 0;
-    font-family: sans-serif;
-    font-size: 9pt;
-    color: #555555;
+  display: block;
+  margin: 10px 0;
+  font-family: sans-serif;
+  font-size: 9pt;
+  color: #555555;
 }
 
 .req {
-    vertical-align: 2px;
-    color: red;
+  vertical-align: 2px;
+  color: red;
 }
 
 .dialog_v {
-    opacity: 1;
-    z-index: 2;
+  opacity: 1;
+  z-index: 2;
 }
 
 .dialog_i {
-    opacity: 0;
-    z-index: -1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .dialogform {
-    width: 576px;
-    height: auto;
-    max-height: 80vh;
-    display: none;
-    overflow-y: auto;
+  width: 576px;
+  height: auto;
+  max-height: 80vh;
+  display: none;
+  overflow-y: auto;
 }
 
 .activedialog {
-    display: block;
+  display: block;
 }
 
 .dialogform .close {
-    font-size: 12pt;
+  font-size: 12pt;
 }
 
-.dialogform > h1 {
-    width: 100%;
-    text-align: center;
-    line-height: 1;
+.dialogform>h1 {
+  width: 100%;
+  text-align: center;
+  line-height: 1;
 }
 
-.dialogform input, .dialogform select {
-    margin-bottom: 8px;
+.dialogform input,
+.dialogform select {
+  margin-bottom: 8px;
 }
 
 .dialogform select {
-    height: 21px; /* derp */
+  height: 21px;
+  /* derp */
 }
 
-.dialogform > label {
-    vertical-align: 3px; /* derp */
+.dialogform>label {
+  vertical-align: 3px;
+  /* derp */
 }
 
-.dialogform > div:first-of-type {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+.dialogform>div:first-of-type {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
-.dialogform > div:first-of-type input, .dialogform > div:first-of-type select{
-    width: 238px;
+.dialogform>div:first-of-type input,
+.dialogform>div:first-of-type select {
+  width: 238px;
 }
 
-.dialogform > div:last-of-type input, .dialogform > div:last-of-type select {
-    width: calc(100% - 8px);
+.dialogform>div:last-of-type input,
+.dialogform>div:last-of-type select {
+  width: calc(100% - 8px);
 }
 
-.dialogform > div:last-of-type input[type=checkbox] {
-    width: unset;
+.dialogform>div:last-of-type input[type=checkbox] {
+  width: unset;
 }
 
-.dialogform > label {
-    display: inline;
+.dialogform>label {
+  display: inline;
 }
 
-.dialogform > input[type=submit] {
-    width: 100%;
-    margin-top: 12px;
-    padding: 6px;
-    cursor: pointer;
+.dialogform>input[type=submit] {
+  width: 100%;
+  margin-top: 12px;
+  padding: 6px;
+  cursor: pointer;
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.dialogform .row > .row {
-    justify-content: start;
-    gap: 0.6rem;
-    align-items: center;
+.dialogform .row>.row {
+  justify-content: start;
+  gap: 0.6rem;
+  align-items: center;
 }
 
 .row div {
-    width: 100%;
+  width: 100%;
 }
 
 .dialogform .row button {
-    position: relative;
-    height: 32px;
-    width: 32px;
-    top: 25px;
-    background-color: #0000;
-    border: #0000;
-    color: rgb(0, 156, 0);
-    font-family: monospace;
-    font-size: 24pt;
-    cursor: pointer;
+  position: relative;
+  height: 32px;
+  width: 32px;
+  top: 25px;
+  background-color: #0000;
+  border: #0000;
+  color: rgb(0, 156, 0);
+  font-family: monospace;
+  font-size: 24pt;
+  cursor: pointer;
 }
 
 .ays_i {
-    opacity: 0;
-    z-index: -1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .ays_v {
-    opacity: 1;
-    z-index: 3;
+  opacity: 1;
+  z-index: 3;
 }
 
 .focus {
-    background-color: #000a;
-    pointer-events: all;
-    height: 100%;
+  background-color: #000a;
+  pointer-events: all;
+  height: 100%;
 }
 
 .pw_i {
-    opacity: 0;
-    z-index: -1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .pw_v {
-    opacity: 1;
-    z-index: 5;
+  opacity: 1;
+  z-index: 5;
 }
 
 #pw input[type=submit] {
-    margin-top: 12px;
-    cursor: pointer;
+  margin-top: 12px;
+  cursor: pointer;
 }
 
 .about_i {
-    opacity: 0;
-    z-index: -1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .about_v {
-    opacity: 1;
-    z-index: 3;
+  opacity: 1;
+  z-index: 3;
 }
 
 form.dialogform input[type=date] {
-    width: max-content; /* !important? */
+  width: max-content;
+  /* !important? */
 }
 
 input#c3 {
-    margin: 0;
+  margin: 0;
 }
 
 label[for=c3] {
-    width: 90%;
-    align-self: center;
+  width: 90%;
+  align-self: center;
+}
+
+.blame {
+    text-align: center;
+    color: gray;
 }
