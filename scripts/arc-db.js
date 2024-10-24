@@ -62,6 +62,7 @@ usern = document.getElementById("username")
 logoutb = document.getElementById("logout")
 loginb = document.getElementById("logina")
 loggedin = false
+username = ""
 
 async function login(form) {
   event.preventDefault();
@@ -77,7 +78,8 @@ async function login(form) {
       setvisibility(form.parentElement, 'i')
       document.querySelector('#loginform > input[type="password"]').value = ""
       loadtext("lerr", "")
-      usern.innerHTML = await r.text()
+      username = await r.text()
+      usern.innerHTML = username
       document.querySelectorAll('.admin').forEach((ele) => {
         ele.classList.toggle('none')
       })
@@ -167,6 +169,9 @@ async function send(that) {
     // leave json parsing to the server since formdata can't store arrays
     fd.append('illustrator', JSON.stringify(merged));
     fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
+    fd.set('blameuser', username)
+    now = new Date
+    fd.set('blamedate', now.toISOString())
   }
 
 
