@@ -416,13 +416,20 @@ function showdialog(id, data) {
     dialog.reset()
     fe = dialog.elements
     // static since the form names differ
-    dialog.children[3].children[0].children[1].value = data.data("id")
+    dialog.children[4].children[0].children[1].value = data.data("id")
     if (data.data("category") === "chartochar"  // i am very smart
       || data.data("category") === "chartoevent"
       || (data.data("illustrator") && dialog.id === "characterform")
       || (data.data("releasedate") && dialog.id === "eventform")) {
       dialog.children[1].innerHTML = `Editing ${h1} ${data.data("_key")}`
       dialog.children[dialog.children.length - 2].value = "Edit"
+      blametext = ""
+      if (data.data('blameuser') && data.data('blamedate')) {
+        blametext = `last edited by ${data.data('blameuser')} on ${Date(data.data('blamedate'))}`
+      } else {
+        blametext = "last edit is unknown"
+      }
+      dialog.children[2].innerHTML = blametext
       switch (dialog.id) {
         case "instanceform":
           fe["_key"].value = data.data("_key")
@@ -518,6 +525,7 @@ function closedialog() {
     a.reset()
     a.elements["_key"].removeAttribute("value")
     a.setAttribute("inert", "")
+    a.children[2].innerHTML = ""
   }
 }
 

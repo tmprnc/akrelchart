@@ -262,3 +262,8 @@ label[for=c3] {
   width: 90%;
   align-self: center;
 }
+
+.blame {
+    text-align: center;
+    color: gray;
+}
