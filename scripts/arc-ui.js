@@ -445,6 +445,7 @@ function showdialog(id, data) {
           fe["obsolete"].checked = data.data("obsolete")
           fe["subtype"].value = data.data("subtype")
           fe["subtype_reverse"].value = data.data("subtype_reverse")
+          fe["connective"].value = data.data("connective")
           fe["instance"].value = data.data("instance")
           fe["instancedetail"].value = data.data("instancedetail")
           fe["url"].value = data.data("url")
