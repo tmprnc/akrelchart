@@ -422,7 +422,7 @@ function showdialog(id, data) {
       || (data.data("illustrator") && dialog.id === "characterform")
       || (data.data("releasedate") && dialog.id === "eventform")) {
       dialog.children[1].innerHTML = `Editing ${h1} ${data.data("_key")}`
-      dialog.lastElementChild.value = "Edit"
+      dialog.children[dialog.children.length - 2].value = "Edit"
       switch (dialog.id) {
         case "instanceform":
           fe["_key"].value = data.data("_key")
