@@ -151,7 +151,6 @@ function assocgen(edge, point, reverse) {
       result.push(pe)
     }
   }
-  console.log(result)
   result.forEach(ele => { li.appendChild(ele) })
   if (defaultappend) {
     let [a, b] = charlinkgen(target)
