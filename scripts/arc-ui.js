@@ -98,6 +98,19 @@ function instancegen(edge){// event, type, as) {
     return li
 }
 
+function charlinkgen(who) {
+  img = document.createElement('img')
+  img.src = `../images/icon/${who.data("_key")}.webp`
+  a = document.createElement('a')
+  a.innerHTML = who.data("name")
+  a.href = '#'
+  a.onclick = function() {
+    event.preventDefault();
+    goto(who.data("_key"))
+  }
+  return [img, a]
+}
+
 function assocgen(edge, point, reverse) {
     let target = cy.$id(edge.data(`${point === "source" ? "source" : "target"}`))
     itype = reverse ? edge.data("subtype_reverse") : edge.data("subtype")
@@ -109,29 +122,34 @@ function assocgen(edge, point, reverse) {
 	if (edge.data("obsolete")) {
 		li.classList.add("obsolete")
 	}
-    p1 = document.createElement("p")
-    p15 = document.createElement("p")
-    if (itype.includes("%c")) {
-            let [itype1, itype2] = itype.split("%c")
-            p1.innerHTML = itype1
-            p15.innerHTML = itype2
-    } else {
-            p1.innerHTML = itype
-            p15 = undefined
+    r = /(%c|%C\[.*\])/
+    string = itype.split(r)
+    result = []
+    defaultappend = true
+    for (let part of string) {
+      if (part === "%c") {
+        defaultappend = false
+        let [a, b] = charlinkgen(target)
+        result.push(a)
+        result.push(b)
+      } else if (part.startsWith("%C[")) {
+        defaultappend = false
+        let [a, b] = charlinkgen(cy.$id(`characters/${part.substring(3, part.length - 1)}`))
+        result.push(a)
+        result.push(b)
+      } else if (part) {
+        pe = document.createElement('p')
+        pe.innerHTML = (part)
+        result.push(pe)
+      }
     }
-    img = document.createElement("img")
-    img.src = `../images/icon/${target.data("_key")}.webp`
-    a = document.createElement("a")
-    a.innerHTML = target.data("name")
-    a.href = '#'
-    a.onclick = function() {
-        event.preventDefault();
-      goto(target.data("_key"))
+    console.log(result)
+    result.forEach(ele => {li.appendChild(ele)})
+    if (defaultappend) {
+       let [a, b] = charlinkgen(target)
+       li.appendChild(a)
+       li.appendChild(b)
     }
-    li.appendChild(p1)
-    li.appendChild(img)
-    li.appendChild(a)
-    typeof p15 !== 'undefined' ? li.appendChild(p15) : true
     if (edge?.data("connective") !== "implicit") {
         p2 = document.createElement("p")
         p2.innerHTML = edge.data("connective") ?? "in"
