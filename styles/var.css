@@ -12,11 +12,18 @@
 
 /* User area (ftr_usr), (ftr_admin) */
 :root {
-  --usr1: 62, 62, 62;
-  --usr2: 83, 83, 83;
-  --adm1: 7, 150, 215;
-  --adm2: 22, 151, 211;
-  --adm-hvr: #f7fcfd;
-  --adm-active: #d2f8ff;
-  --adm-hvr-text: black;
+    --usr1: 62,62,62;
+    --usr2: 83,83,83;
+    --adm1: 7,150,215;
+    --adm2: 22,151,211;
+    --adm-hvr: #f7fcfd;
+    --adm-active: #d2f8ff;
+    --adm-hvr-text: black;
+}
+
+/* DIALOG AND POPOUT COLORS */
+
+:root {
+    --card-bg: rgba(238, 238, 238, 0.85);
+    }
 }

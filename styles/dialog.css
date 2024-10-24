@@ -21,14 +21,13 @@
   z-index: -1;
 }
 
-.center>form,
-.center>.dialog {
-  position: relative;
-  pointer-events: initial;
-  border: 2px solid darkgray;
-  border-radius: 3px;
-  background-color: white;
-  padding: 12px;
+.center > form, .center > .dialog {
+    position: relative;
+    pointer-events: initial;
+    border: 2px solid darkgray;
+    border-radius: 3px;
+    background-color: var(--card-bg);
+    padding: 12px;
 }
 
 #login>form {
