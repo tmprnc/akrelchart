@@ -1,427 +1,448 @@
 @font-face {
-    font-family: "NuberNext Condensed";
-    src: url(../fonts/NuberNext-RegularCondensed.woff2);
+  font-family: "NuberNext Condensed";
+  src: url(../fonts/NuberNext-RegularCondensed.woff2);
 }
 
 @font-face {
-    font-family: "Visitor";
-    src: url(../fonts/Visitor.woff2);
+  font-family: "Visitor";
+  src: url(../fonts/Visitor.woff2);
 }
 
 @font-face {
-    font-family: 'Bender';
-    src: local('Bender'),
+  font-family: 'Bender';
+  src: local('Bender'),
     url(../fonts/Bender.woff2) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Bender';
-    src: local('Bender Bold'), local('Bender-Bold'),
+  font-family: 'Bender';
+  src: local('Bender Bold'), local('Bender-Bold'),
     url(../fonts/Bender-Bold.woff2) format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans UltraLight'), local('Novecentosans-UltraLight'),
+  font-family: 'Novecento sans';
+  src: local('Novecento sans UltraLight'), local('Novecentosans-UltraLight'),
     url(../fonts/Novecentosans-UltraLight.woff2) format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans UltraBold'), local('Novecentosans-UltraBold'),
-        url(../fonts/Novecentosans-UltraBold.woff2) format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans';
+  src: local('Novecento sans UltraBold'), local('Novecentosans-UltraBold'),
+    url(../fonts/Novecentosans-UltraBold.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans Light'), local('Novecentosans-Light'),
-        url(../fonts/Novecentosans-Light.woff2) format('woff2');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans';
+  src: local('Novecento sans Light'), local('Novecentosans-Light'),
+    url(../fonts/Novecentosans-Light.woff2) format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans Bold'), local('Novecentosans-Bold'),
-        url(../fonts/Novecentosans-Bold.woff2) format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans';
+  src: local('Novecento sans Bold'), local('Novecentosans-Bold'),
+    url(../fonts/Novecentosans-Bold.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans Book';
-    src: local('Novecento sans Book'), local('Novecentosans-Book'),
-        url(../fonts/Novecentosans-Book.woff2) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans Book';
+  src: local('Novecento sans Book'), local('Novecentosans-Book'),
+    url(../fonts/Novecentosans-Book.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans Normal'), local('Novecentosans-Normal'),
-        url(../fonts/Novecentosans-Normal.woff2) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans';
+  src: local('Novecento sans Normal'), local('Novecentosans-Normal'),
+    url(../fonts/Novecentosans-Normal.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans Medium'), local('Novecentosans-Medium'),
-        url(../fonts/Novecentosans-Medium.woff2) format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans';
+  src: local('Novecento sans Medium'), local('Novecentosans-Medium'),
+    url(../fonts/Novecentosans-Medium.woff2) format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Novecento sans';
-    src: local('Novecento sans DemiBold'), local('Novecentosans-DemiBold'),
-        url(../fonts/Novecentosans-DemiBold.woff2) format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Novecento sans';
+  src: local('Novecento sans DemiBold'), local('Novecentosans-DemiBold'),
+    url(../fonts/Novecentosans-DemiBold.woff2) format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
-p, a {
-    font-family: "NuberNext Condensed", "Segoe UI", sans-serif;
+
+p,
+a {
+  font-family: "NuberNext Condensed", "Segoe UI", sans-serif;
 }
 
 a {
-    color: #568eff;
+  color: #568eff;
 }
 
 a:hover {
-    color: #0037ff;
+  color: #0037ff;
 }
 
 body {
-    margin: 0;
-    background-color: #d9d9d9;
-    background-image: url(../images/background.svg);
-    overflow-x: hidden;
-    overflow-y: hidden;
-    background-size: cover;
-}   
+  margin: 0;
+  background-color: #d9d9d9;
+  background-image: url(../images/background.svg);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-size: cover;
+}
 
 div {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 pre {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #cy {
-    height: 100vh;
-    width: 100vw;
-    background: transparent;
-    background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  background: transparent;
+  background-size: cover;
 }
 
 
 @keyframes bg-scrolling-reverse {
-    100% {
-        background-position: 80px 160px;
-    }
+  100% {
+    background-position: 80px 160px;
+  }
 }
 
-  #cy {
-    background: url("../images/graphy.webp") repeat 0 0;
-    animation: bg-scrolling-reverse 25s infinite;
-    animation-timing-function: linear;
-  }  
+#cy {
+  background: url("../images/graphy.webp") repeat 0 0;
+  animation: bg-scrolling-reverse 25s infinite;
+  animation-timing-function: linear;
+}
 
 #footer {
-    font-size: 1.4rem;
-    position: absolute;
-    left: 1%;
-    right: 1%;
-    width: fit-content;
-    border-radius: 2px;
-    display: flex;
-    z-index: 2;
-    text-align: center;
-    justify-content: space-between;
-    backdrop-filter: blur(3.5px);
+  font-size: 1.4rem;
+  position: absolute;
+  left: 1%;
+  right: 1%;
+  width: fit-content;
+  border-radius: 2px;
+  display: flex;
+  z-index: 2;
+  text-align: center;
+  justify-content: space-between;
+  backdrop-filter: blur(3.5px);
 }
 
 #banner {
-    max-height: 77.59px;
+  max-height: 77.59px;
 }
 
 #banner:hover {
-    content: url("../images/banner-awake.png");
+  content: url("../images/banner-awake.png");
 }
 
 #footer a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #footer p {
-    margin-block: 0;
+  margin-block: 0;
 }
 
-#footer > nav {
-    flex-grow: 1;
-    height: auto;
-    display: flex;
-    align-items: center;
+#footer>nav {
+  flex-grow: 1;
+  height: auto;
+  display: flex;
+  align-items: center;
 }
 
 .ftr_sub {
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25); 
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.ftr_btn { 
-    padding: 15px;
-    display: flex;
-    color: var(--btn-text);
-    font-family: "NuberNext Condensed";
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-position: center;
-    transition: background 0.8s;
+.ftr_btn {
+  padding: 15px;
+  display: flex;
+  color: var(--btn-text);
+  font-family: "NuberNext Condensed";
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  transition: background 0.8s;
 }
 
 .btn-text:after {
-    border-left: 2px black;
+  border-left: 2px black;
 }
 
 .btn_text:hover {
-    text-decoration: none;
-    color: var(--btn-text);
+  text-decoration: none;
+  color: var(--btn-text);
 }
 
 .btn_text {
-    font-family: "NuberNext Condensed";
-    font-size: 1.5rem;
-    padding: 10px;
-    color: inherit;
+  font-family: "NuberNext Condensed";
+  font-size: 1.5rem;
+  padding: 10px;
+  color: inherit;
 }
 
 .ftr_btn:hover {
-    color: var(--btn-text);
-    background: var(--btn-hvr1) radial-gradient(circle, transparent 1%, var(--btn-hvr1) 1%) center/15000%;
+  color: var(--btn-text);
+  background: var(--btn-hvr1) radial-gradient(circle, transparent 1%, var(--btn-hvr1) 1%) center/15000%;
 }
 
 .ftr_btn:active {
-    background-color: var(--btn-active);
-    background-size: 100%;
-    transition: background 0s;
+  background-color: var(--btn-active);
+  background-size: 100%;
+  transition: background 0s;
 }
 
 #ftr_gen {
-    background: rgba(var(--gen1),0.9);
-    background: linear-gradient(90deg, rgba(var(--gen1),0.9) 0%, rgba(var(--gen2),0.9) 59%);
+  background: rgba(var(--gen1), 0.9);
+  background: linear-gradient(90deg, rgba(var(--gen1), 0.9) 0%, rgba(var(--gen2), 0.9) 59%);
 }
 
 .ftr_usr {
-    background: rgba(var(--usr1),0.9);
-    background: linear-gradient(90deg, rgba(var(--usr1),0.9) 0%, rgba(var(--usr2),0.9) 59%);
+  background: rgba(var(--usr1), 0.9);
+  background: linear-gradient(90deg, rgba(var(--usr1), 0.9) 0%, rgba(var(--usr2), 0.9) 59%);
 }
 
-.ftr_usr > *:first-child {
-    margin-left: 0.4rem
+.ftr_usr>*:first-child {
+  margin-left: 0.4rem
 }
 
 .ftr_admin {
-    background: rgba(var(--adm1),0.9);
-    background: linear-gradient(rgba(var(--adm1),0.9) 0%, rgba(var(--adm2),0.9) 59%);
-    & .ftr_btn:hover {
-        color: var(--adm-hvr-text);
-        background: var(--adm-hvr) radial-gradient(circle, transparent 1%, var(--adm-hvr) 1%) center/15000%;
-    } ;
-    & .btn_text:hover {
-        color: var(--adm-hvr-text);
-    } ;
-    & .ftr_btn:active {
-        background-color: var(--adm-active);  
-        background-size: 100%;
-        transition: background 0s;
-    }
-    & .ftr_sep {
-        background: rgba(255, 255, 255, 0.75);
-    } ;
+  background: rgba(var(--adm1), 0.9);
+  background: linear-gradient(rgba(var(--adm1), 0.9) 0%, rgba(var(--adm2), 0.9) 59%);
+
+  & .ftr_btn:hover {
+    color: var(--adm-hvr-text);
+    background: var(--adm-hvr) radial-gradient(circle, transparent 1%, var(--adm-hvr) 1%) center/15000%;
+  }
+
+  ;
+
+  & .btn_text:hover {
+    color: var(--adm-hvr-text);
+  }
+
+  ;
+
+  & .ftr_btn:active {
+    background-color: var(--adm-active);
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  & .ftr_sep {
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  ;
 }
 
 .ftr_sep {
-    width: 2px;
-    height: 40%;
-    background: rgba(148, 148, 148, 0.75);
+  width: 2px;
+  height: 40%;
+  background: rgba(148, 148, 148, 0.75);
 }
 
 #first_sep {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 
 #loginstr {
-    padding: 12px;
-    display: flex;
-    color: var(--btn-text);
-    font-family: "NuberNext Condensed";
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-position: center;
+  padding: 12px;
+  display: flex;
+  color: var(--btn-text);
+  font-family: "NuberNext Condensed";
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
 }
 
 #username {
-    background: black;
-    padding: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-    color: white;
-    font-family: "Bender";  
-    font-weight: bold;
-    font-size: 1.45rem;
-    margin-left: 0.5rem;
+  background: black;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: white;
+  font-family: "Bender";
+  font-weight: bold;
+  font-size: 1.45rem;
+  margin-left: 0.5rem;
 }
 
-#footer > div:first-child {
-    justify-content: start;
+#footer>div:first-child {
+  justify-content: start;
 }
 
-#footer > div:last-child {
-    justify-content: end;
+#footer>div:last-child {
+  justify-content: end;
 }
 
 .footer_v {
-    bottom: 2%;
-    animation: slideup 0.4s ease-in-out;
+  bottom: 2%;
+  animation: slideup 0.4s ease-in-out;
 }
 
 .footer_i {
-    bottom: -10%;
-    animation: slidedown 0.4s ease-in-out;
+  bottom: -10%;
+  animation: slidedown 0.4s ease-in-out;
 }
 
 @keyframes slidedown {
-    0% {
-        bottom: 2%;
-    }
-    100% {
-        bottom: -10%;
-    }
+  0% {
+    bottom: 2%;
+  }
+
+  100% {
+    bottom: -10%;
+  }
 }
+
 @keyframes slideup {
-    0% {
-        bottom: -10%;
-    }
-    100% {
-        bottom: 2%;
-    }
+  0% {
+    bottom: -10%;
+  }
+
+  100% {
+    bottom: 2%;
+  }
 }
 
 #restoreui {
-    display: flex;
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    bottom: 0;
-    padding: 0 1% 2% 1%;
-    align-items: end;
-    justify-content: start;
+  display: flex;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  bottom: 0;
+  padding: 0 1% 2% 1%;
+  align-items: end;
+  justify-content: start;
 }
 
 .restoreui_i {
-    left: -50%;
-    animation: slideleft 0.5s ease-in-out;
+  left: -50%;
+  animation: slideleft 0.5s ease-in-out;
 }
 
 .restoreui_v {
-    left: 0;
-    animation: slideright 0.5s ease-in-out;
+  left: 0;
+  animation: slideright 0.5s ease-in-out;
 }
 
 .hiddenlink {
-    opacity: 0;
-    color: #568eff;
-    animation: fadeout 0.2s linear;
+  opacity: 0;
+  color: #568eff;
+  animation: fadeout 0.2s linear;
 }
 
 .hiddenlink:hover {
-    opacity: 100;
-    animation: fadein 1s linear;
+  opacity: 100;
+  animation: fadein 1s linear;
 }
 
 @keyframes slideleft {
-    0% {
-        right: 0;
-    }
-    100% {
-        right: -50%;
-    }
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: -50%;
+  }
 }
+
 @keyframes slideright {
-    0% {
-        right: -50%;
-    }
-    100% {
-        right: 0;
-    }
+  0% {
+    right: -50%;
+  }
+
+  100% {
+    right: 0;
+  }
 }
 
 @keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
+
 @keyframes fadeout {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }   
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .none {
-    display: none !important;
+  display: none !important;
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
-    background-color: #568eff;
-    mask-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  background-color: #568eff;
+  mask-repeat: no-repeat;
 }
 
 .icon:hover {
-    background-color: #1563ff;
+  background-color: #1563ff;
 }
 
 .icon-open {
-    mask-image: url("../images/popout/open.svg");
+  mask-image: url("../images/popout/open.svg");
 }
 
 .icon-edit {
-    mask-image: url("../images/popout/edit.svg");
+  mask-image: url("../images/popout/edit.svg");
 }
 
 .icon-delete {
-    mask-image: url("../images/popout/delete.svg");
+  mask-image: url("../images/popout/delete.svg");
 }
 
 .icon-editevent {
-    mask-image: url("../images/popout/editevent.svg");
+  mask-image: url("../images/popout/editevent.svg");
 }
