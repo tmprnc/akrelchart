@@ -169,11 +169,11 @@ async function send(that) {
     // leave json parsing to the server since formdata can't store arrays
     fd.append('illustrator', JSON.stringify(merged));
     fd.set('aliases', JSON.stringify(fd.getAll('aliases')));
-    fd.append('blameuser', username)
-    now = new Date
-    fd.append('blamedate', now.toISOString())
   }
 
+  fd.set('blameuser', username)
+  now = new Date
+  fd.set('blamedate', now.toISOString())
 
   try {
     r = await fetch(`https://api.ptilopsis.network/admin/${endpoint}`, {
