@@ -128,7 +128,12 @@ cy.on('select', 'node', async function(event){
         if (r.ok) {
             fac = node.data('sub-faction')
         } else {
-            fac = node.data('faction')
+            const s = await fetch(`../images/faction/${node.data('faction')}.webp`)
+            if (s.ok) {
+              fac = node.data('faction')
+            } else {
+              fac = 'no-icon'
+            }
         }
     } catch (e) {}
 
