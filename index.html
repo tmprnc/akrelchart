@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="./styles/popout.css">
   <link rel="stylesheet" href="./styles/search.css">
   <link rel="stylesheet" href="./styles/dialog.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.basic.min.js"></script>
 </head>
@@ -91,7 +90,7 @@
   </div>
 
   <div id="login" class="center login_i" inert>
-    <form id="loginform" class="animate__animated animate__fadeInRight" onsubmit="login(this)">
+    <form id="loginform" onsubmit="login(this)">
       <div id="close_wrapper">
         <a href="#" class="close-button" onclick="hidelogin()">
           <div class="in">
@@ -105,7 +104,7 @@
         </a>
       </div>
       <div id="loginform-outer">
-        <img id="login-logo" class="animate__animated animate__fadeInRight" src="images/login-logo.svg">
+        <img id="login-logo" src="images/login-logo.svg">
         <div id="loginform-inner">
           <div class="login-group">
             <label class="login-label">username:</label>
