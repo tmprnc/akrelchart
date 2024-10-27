@@ -24,30 +24,91 @@
 .center > form, .center > .dialog {
     position: relative;
     pointer-events: initial;
-    border: 2px solid darkgray;
     border-radius: 3px;
     background-color: var(--card-bg);
+    backdrop-filter: blur(5px);
     padding: 12px;
 }
 
-#login>form {
-  width: 180px;
-  height: 150px;
+#loginform {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.login-group {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.login-group input {
+  background: transparent;
+  border: none;
+  font-family: 'Bender';
+  font-size: 1.7em;
+  height: 2em;
+  margin-top: 6.5px;
+  letter-spacing: 0.02em;
+}
+
+input#login-usr {
+  font-style: italic;
+}
+
+#login-logo {
+  height: 18vh;
+}
+
+#loginform-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#loginform-outer {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  align-items: center;
+  margin: 2.7em;
+}
+
+.login-group input:focus-visible, .login-group input:focus, .login-group input:focus-within {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.login-label {
+  color: black;
+  font-family: 'Novecento Sans';
+  font-weight: bold;
+  font-size: 1.45em;
+  height: 100%;
+  letter-spacing: -0.055em;
+  align-content: center;
+  margin: 0 !important;
+}
 
 #login input[type=submit] {
-  border: 0px;
-  background-color: white;
-  color: #568eff;
-  text-decoration: underline;
+  background-color: transparent;
+  color: black;
   font-size: 12pt;
   margin-top: 18px;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: 11em;
+  margin-left: 2em;
+  transition: all  0.35s;
 }
 
 #login input[type=submit]:hover {
-  color: #0037ff;
+  color: white;
+  background: black;
 }
 
 .err {
@@ -75,13 +136,88 @@
 .close {
   position: absolute;
   justify-self: end;
-  top: 6px;
-  right: 6px;
+  top: 8px;
+  right: 8px;
   font-size: 8pt;
   color: red;
   border: 0px;
   background-color: #0000;
   cursor: pointer;
+}
+
+#close_wrapper {
+  position: absolute;
+  justify-self: end;
+  top: 6px;
+  right: 6px;
+  font-size: 8pt;
+  cursor: pointer;
+}
+
+.close-button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  right: 10px;
+  top: 10px;
+}
+
+.close-button > div {
+  position: relative;
+}
+.close-button-block {
+  width: 40px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.close-button-block:before, .close-button-block:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(55% - 4px);
+  display: block;
+  width: 4px;
+  height: 25px;
+  transform-origin: bottom center;
+  background: black;
+  transition: all ease-out 280ms;
+}
+.close-button-block:last-of-type {
+  transform: rotate(180deg);
+}
+.close-button .in .close-button-block:before {
+  transition-delay: 280ms;
+  transform: translateX(20px) translateY(-20px) rotate(45deg);
+}
+.close-button .in .close-button-block:after {
+  transition-delay: 280ms;
+  transform: translateX(-22px) translateY(-22px) rotate(-45deg);
+}
+.close-button .out {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.close-button .out .close-button-block:before {
+  transform: translateX(-5px) translateY(5px) rotate(45deg);
+}
+.close-button .out .close-button-block:after {
+  transform: translateX(5px) translateY(5px) rotate(-45deg);
+}
+.close-button:hover .in .close-button-block:before {
+  transform: translateX(-5px) translateY(5px) rotate(45deg);
+}
+.close-button:hover .in .close-button-block:after {
+  transform: translateX(5px) translateY(5px) rotate(-45deg);
+}
+.close-button:hover .out .close-button-block:before {
+  transform: translateX(-20px) translateY(20px) rotate(45deg);
+}
+.close-button:hover .out .close-button-block:after {
+  transform: translateX(20px) translateY(20px) rotate(-45deg);
 }
 
 label {

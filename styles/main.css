@@ -27,6 +27,15 @@
 }
 
 @font-face {
+  font-family: 'Bender';
+  src: local('Bender Italic'), local('Bender-Italic'),
+    url(../fonts/Bender-Italic.woff2) format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Novecento sans';
   src: local('Novecento sans UltraLight'), local('Novecentosans-UltraLight'),
     url(../fonts/Novecentosans-UltraLight.woff2) format('woff2');
