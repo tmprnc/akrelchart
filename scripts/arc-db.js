@@ -76,7 +76,7 @@ async function login(form) {
 
     if (r.ok) {
       setvisibility(form.parentElement, 'i')
-      document.querySelector('#loginform > input[type="password"]').value = ""
+      document.querySelector('#loginform input[type="password"]').value = ""
       loadtext("lerr", "")
       username = await r.text()
       usern.innerHTML = username

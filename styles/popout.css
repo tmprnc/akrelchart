@@ -163,7 +163,7 @@
 
 .popoutcontainer_v {
   right: 2%;
-  animation: slideinpopout 0.3s eaSse-out;
+  animation: slideinpopout 0.3s ease-out;
 }
 
 @keyframes slideinpopout {
