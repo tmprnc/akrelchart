@@ -91,14 +91,34 @@
 
   <div id="login" class="center login_i" inert>
     <form id="loginform" onsubmit="login(this)">
-      <button type="button" class="close" onclick="hidelogin()">╳</button>
-      <label>username</label>
-      <input type="text" name="user">
-      <label>password</label>
-      <input type="password" name="pw">
-      <br>
-      <input type="submit" value="Login">
-      <p class="err" id="lerr"></p>
+      <div id="close_wrapper">
+        <a href="#" class="close-button" onclick="hidelogin()">
+          <div class="in">
+            <div class="close-button-block"></div>
+            <div class="close-button-block"></div>
+          </div>
+          <div class="out">
+            <div class="close-button-block"></div>
+            <div class="close-button-block"></div>
+          </div>
+        </a>
+      </div>
+      <div id="loginform-outer">
+        <img id="login-logo" src="images/login-logo.svg">
+        <div id="loginform-inner">
+          <div class="login-group">
+            <label class="login-label">username:</label>
+            <input id="login-usr" type="text" name="user">
+          </div>
+          <div class="login-group">
+            <label class="login-label">password:</label>
+            <input id="login-pw" type="password" name="pw">
+          </div>
+          <div class="login-group">
+            <input class="login_btn" type="submit" value="Log in">
+            <p class="err" id="lerr"></p></div>
+        </div>
+      </div>
     </form>
   </div>
 
