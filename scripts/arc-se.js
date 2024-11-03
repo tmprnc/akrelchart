@@ -4,11 +4,14 @@ document.addEventListener("keydown", function (event) {
       event.preventDefault();
       popsearch()
     }
+    // why is the general escape key listener bundled in the searchbar file this sucks
   } else if (event.key === "Escape") {
     if (document.querySelector(".activedialog")) {
       closedialog()
     } else if (document.querySelector(".search_v")) {
       unpopsearch()
+    } else if (document.querySelector(".login_v")) {
+      hidelogin()
     } else {
       collapse()
     }
