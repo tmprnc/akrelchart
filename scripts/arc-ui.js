@@ -323,6 +323,17 @@ function hidelogin() {
   logo.classList.toggle("login-logo-visible")
 }
 
+function checklogin() {
+  un = document.getElementById("login-usr")
+  pw = document.getElementById("login-pw")
+  button = document.getElementById("login-btn")
+  if (un.value && pw.value) {
+    button.classList.remove("invisible")
+  } else {
+    button.classList.add("invisible")
+  }
+}
+
 function goto(id) {
   cy.$(':selected').unselect()
   cy.$(`[_key='${id}']`).select()

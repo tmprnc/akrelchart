@@ -108,14 +108,14 @@
         <div id="loginform-inner">
           <div class="login-group">
             <label class="login-label">username:</label>
-            <input id="login-usr" type="text" name="user">
+            <input id="login-usr" type="text" name="user" oninput="checklogin()">
           </div>
           <div class="login-group">
             <label class="login-label">password:</label>
-            <input id="login-pw" type="password" name="pw">
+            <input id="login-pw" type="password" name="pw" oninput="checklogin()">
           </div>
           <div class="login-group">
-            <input class="login_btn" type="submit" value="Log in">
+            <input id="login-btn" class="invisible" type="submit" value="Log in">
             <p class="err" id="lerr"></p></div>
         </div>
       </div>
