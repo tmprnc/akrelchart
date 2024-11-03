@@ -10,11 +10,11 @@ if (seconds % 60 === 0) {
 
 var bully = document.getElementById('banner');
 
-bully.addEventListener('click', erahase);
+var audio = new Audio("./sfx/erahase.mp3");
 function erahase() {
-  var audio = new Audio("./sfx/erahase.mp3");
   audio.play();
 };
+bully.addEventListener('click', erahase);
 
 // copied from stackoverflow
 // also, lol?
