@@ -312,10 +312,15 @@ function showlogin() {
   setvisibility(login, "v")
   usernameinput = document.getElementById("login-usr")
   usernameinput.focus()
+  logo = login.children[0].children[1].children[0]
+  logo.classList.toggle("login-logo-visible")
 }
 
 function hidelogin() {
-  setvisibility(document.getElementById("login"), "i")
+  login = document.getElementById("login")
+  setvisibility(login, "i")
+  logo = login.children[0].children[1].children[0]
+  logo.classList.toggle("login-logo-visible")
 }
 
 function goto(id) {
