@@ -398,6 +398,12 @@ label[for=c3] {
   align-self: center;
 }
 
+/* yeah i know */
+label[for=c4] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
 .blame {
     text-align: center;
     color: gray;
