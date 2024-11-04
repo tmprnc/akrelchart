@@ -101,6 +101,8 @@ intlist = document.getElementById("interactions")
 mbylist = document.getElementById("mentionby")
 menlist = document.getElementById("mentions")
 
+fetchq = []
+
 cy.on('select', 'node', async function (event) {
   var node = event.target;
   unhide()
@@ -162,8 +164,23 @@ cy.on('select', 'node', async function (event) {
   }
 
   // loading gfx takes an eternity compared to crunching local data
+  ac = new AbortController()
+  as = ac.signal
+  fetchq.push(ac)
   fullcg = document.querySelector('#popoutcontainer > img')
-  fullcg.src = `../images/fullcg/${node.data('_key')}.webp`
+  fullcg.classList.add("imgloading")
+  let blob
+  image = await fetch(`../images/fullcg/${node.data('_key')}.webp`, {
+                      signal: as})
+  if (image.ok) {
+    blob = URL.createObjectURL(await image.blob())
+  } else {
+    blob = "../images/faction/blank.webp"
+  }
+
+  fetchq.filter((ele) => {ele !== as})
+  fullcg.src = blob
+  fullcg.classList.remove("imgloading")
 
   try {
     const r = await fetch(`../images/faction/${node.data('sub-faction')}.webp`)
@@ -205,6 +222,7 @@ cy.on('unselect', 'node', function (event) {
     e.replaceChildren()
   }
 
+  fetchq.forEach((fetch) => {fetch.abort()})
   setTimeout(function () {
     if (cy.$(':selected').length === 0) {
       collapse()
