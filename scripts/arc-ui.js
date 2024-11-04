@@ -308,11 +308,11 @@ window.innerHeight / window.innerWidth
 */
 
 function showlogin() {
-  login = document.getElementById("login")
-  setvisibility(login, "v")
+  loginele = document.getElementById("login")
+  setvisibility(loginele, "v")
   usernameinput = document.getElementById("login-usr")
   usernameinput.focus()
-  logo = login.children[0].children[1].children[0]
+  logo = loginele.children[0].children[1].children[0]
   logo.classList.toggle("login-logo-visible")
 }
 
