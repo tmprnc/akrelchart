@@ -68,11 +68,6 @@ function wiperesults(id) {
   document.getElementById(id).innerHTML = "";
 }
 
-const fuseOptions = {
-  threshold: 0.3,
-  keys: ['data.name', 'data._key', 'data.aliases']
-}
-
 bar = document.getElementById("searchbar")
 resultl = document.getElementById("result")
 

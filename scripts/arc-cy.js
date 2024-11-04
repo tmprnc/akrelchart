@@ -52,6 +52,10 @@ var cy = cytoscape({
   wheelSensitivity: 0.1,
 });
 
+const fuseOptions = {
+  threshold: 0.3,
+  keys: ['data.name', 'data._key', 'data.aliases']
+}
 
 var fuse
 var fusee
