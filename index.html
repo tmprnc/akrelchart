@@ -234,9 +234,11 @@
               <option value="according to">according to</option>
               <option value="implicit">&lt;implicit&gt;</option>
             </select>
-            <input type="text" name="instance" oninput="auto('r_assocdiage', false, 'events', 3); charvalid(this)"
+            <div>
+              <input type="text" name="instance" oninput="auto('r_assocdiage', false, 'events', 3); charvalid(this)"
               required pattern="^(events\/)+(\w|-){1,128}">
-            <ul class="result" id="r_assocdiage"></ul>
+              <ul class="result" id="r_assocdiage"></ul>
+            </div>
           </div>
         </div>
         <div>
