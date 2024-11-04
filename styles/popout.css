@@ -66,6 +66,10 @@
   justify-content: space-between;
 }
 
+#charid {
+  color:gray;
+  font-size: 14px;
+}
 
 #popout>section {
   display: flex;

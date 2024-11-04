@@ -137,6 +137,8 @@ cy.on('select', 'node', async function (event) {
     generate(i[0], i[1])
   }
 
+  popout[4].children[0].innerHTML = node.data("_key")
+
   for (e of node.connectedEdges()) {
     if (e.data("category") === "chartoevent") {
       inslist.appendChild(instancegen(e))
