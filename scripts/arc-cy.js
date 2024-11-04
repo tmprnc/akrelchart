@@ -22,6 +22,7 @@ cystyle = [
       'background-width': 'auto 218px',
       'background-image-containment': 'over',
       'background-clip': 'none',
+      'background-repeat': 'no-repeat',
       'font-family': 'NuberNext Condensed',
     }
   },
@@ -50,6 +51,7 @@ var cy = cytoscape({
   style: cystyle,
   boxSelectionEnabled: false,
   wheelSensitivity: 0.1,
+  textureOnViewport: true,
 });
 
 const fuseOptions = {
