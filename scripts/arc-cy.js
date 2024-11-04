@@ -113,31 +113,11 @@ cy.on('select', 'node', async function (event) {
     easing: "ease-out-quad"
   })
 
-  fullcg = document.querySelector('#popoutcontainer > img')
-  fullcg.src = `../images/fullcg/${node.data('_key')}.webp`
-
   popoutc = document.getElementById('popoutcontainer')
   setvisibility(popoutc, "v")
   popoutc.children[1].scrollTop = 0
   popout = document.getElementById('popout').children
   popout[1].innerHTML = node.data('name')
-
-  // forgot why i had to do this
-  try {
-    const r = await fetch(`../images/faction/${node.data('sub-faction')}.webp`)
-    if (r.ok) {
-      fac = node.data('sub-faction')
-    } else {
-      const s = await fetch(`../images/faction/${node.data('faction')}.webp`)
-      if (s.ok) {
-        fac = node.data('faction')
-      } else {
-        fac = 'no-icon'
-      }
-    }
-  } catch (e) { }
-
-  popout[2].src = `../images/faction/${fac}.webp`
 
   list = popout[3].children
   list[list.length - 2].innerHTML = node.data('faction')
@@ -180,6 +160,27 @@ cy.on('select', 'node', async function (event) {
       }
     }
   }
+
+  // loading gfx takes an eternity compared to crunching local data
+  fullcg = document.querySelector('#popoutcontainer > img')
+  fullcg.src = `../images/fullcg/${node.data('_key')}.webp`
+
+  try {
+    const r = await fetch(`../images/faction/${node.data('sub-faction')}.webp`)
+    if (r.ok) {
+      fac = node.data('sub-faction')
+    } else {
+      const s = await fetch(`../images/faction/${node.data('faction')}.webp`)
+      if (s.ok) {
+        fac = node.data('faction')
+      } else {
+        fac = 'no-icon'
+      }
+    }
+  } catch (e) { }
+
+  popout[2].src = `../images/faction/${fac}.webp`
+
 })
 
 cy.on('unselect', 'node', function (event) {
