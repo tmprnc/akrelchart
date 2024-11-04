@@ -63,6 +63,12 @@
 
 #popout>div {
   display: flex;
+  justify-content: space-between;
+}
+
+
+#popout>section {
+  display: flex;
   flex-direction: column;
 }
 
@@ -109,7 +115,7 @@
   text-transform: uppercase;
 }
 
-#popout>div li {
+#popout>section li {
   list-style-type: none;
   margin-left: -24px;
 }
@@ -118,7 +124,7 @@
   display: none;
 }
 
-#popout>div li * {
+#popout>section li * {
   display: inline-block;
   line-height: 36px;
   margin-bottom: 0;
@@ -127,7 +133,7 @@
   padding-right: 3pt;
 }
 
-#popout>div li img {
+#popout>section li img {
   width: 36px;
   height: auto;
 }
