@@ -15,6 +15,14 @@ document.addEventListener("keydown", function (event) {
     } else {
       collapse()
     }
+  } else if (event.key === " ") {
+    cy.$("node").panify()
+  }
+})
+
+document.addEventListener("keyup", function(event) {
+  if (event.key === " ") {
+    cy.$("node").unpanify()
   }
 })
 
