@@ -115,8 +115,8 @@ cy.on('select', 'node', async function (event) {
   unpopsearch()
   cy.animate({
     pan: {
-      x: -node.position('x') * cy.zoom() + window.innerWidth / 4,
-      y: -node.position('y') * cy.zoom() + window.innerHeight / 2
+      x: -node.position('x') * cy.zoom() + window.innerWidth / 1.5,
+      y: -node.position('y') * cy.zoom() + window.innerHeight
     },
     easing: "ease-out-quad"
   })
