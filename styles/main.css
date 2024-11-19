@@ -127,6 +127,7 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 div {
