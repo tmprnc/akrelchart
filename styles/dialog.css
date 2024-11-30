@@ -37,6 +37,10 @@
   justify-content: center;
 }
 
+#loginform, .dialogform {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
 .login-group {
   display: flex;
   align-content: center;
@@ -228,9 +232,27 @@ label {
   color: #555555;
 }
 
+.dialogform label {
+  font-size: 10pt;
+  margin-top: 12px;
+  margin-bottom: 0px;
+  font-family: 'JetBrains Mono';
+  padding: 1px 3px;
+  color: white;
+  width: fit-content;
+  background-color: #68696a;
+  letter-spacing: 0.3px;
+  display: inline;
+}
+
+.dialogform label:has(.req) {
+  font-weight: bolder;
+  background-color: black;
+}
+
 .req {
-  vertical-align: 2px;
-  color: red;
+  vertical-align: 5px;
+  font-size: 7pt;
 }
 
 .dialog_v {
@@ -263,21 +285,165 @@ label {
   width: 100%;
   text-align: center;
   line-height: 1;
+  font-family: 'Bender';
+  font-weight: normal;
 }
 
 .dialogform input,
 .dialogform select {
   margin-bottom: 8px;
+  border: none;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.12),
+  0px 1px 2px 0px rgba(0,0,0,0.24);
+  font-family: 'JetBrains Mono';
+}
+
+.dialogform input[type="checkbox"], .dialogform input[type="radio"] {
+  box-shadow: none;
+}
+
+.dialogform input {
+  height: 1.7em;
+  padding-left: 5px;
 }
 
 .dialogform select {
-  height: 21px;
-  /* derp */
+  height: 1.85em;
+  padding-left: 2px;
 }
 
-.dialogform>label {
-  vertical-align: 3px;
-  /* derp */
+.dialogform input[type=submit] {
+  background-color: black;
+  height: auto;
+  color: white;
+  font-size: 12pt;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: 11em;
+  transition: all  0.35s;
+  padding: 7px;
+}
+
+.dialogform input[type=submit]:hover {
+  color: black;
+  background: white;
+}
+
+#obs-label {
+  margin: 0;
+}
+
+.dialogform input#c4 {
+  margin: 0;
+}
+
+.dialogform .row:has(.radio-block) {
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.radio-block {
+  label {
+    background: none;
+  }
+  --switches-bg-color: black;
+  --switches-label-color: white ;
+  --switch-bg-color: var(--btn-active);
+  --switch-text-color: white ;
+
+/* container for all of the switch elements 
+  - adjust "width" to fit the content accordingly 
+*/
+.switches-container {
+  width: 16rem;
+  position: relative;
+  display: flex;
+  padding: 0;
+  position: relative;
+  background: var(--switches-bg-color);
+  line-height: 2.3rem;
+  border-radius: 3rem;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  color: var(--switches-label-color);
+}
+
+/* switch highlighters wrapper (sliding left / right) 
+  - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  padding: 0.15rem;
+  z-index: 3;
+  transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+  /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+  border-radius: 3rem;
+  background: var(--switch-bg-color);
+  height: 100%;
+  font-family: 'JetBrains Mono';
+  font-weight: bolder;
+  font-size: 10pt;
+  box-shadow: 0px 0px 5px 2px rgba(7, 149, 215, 0.9);
+}
+
+/* switch box labels
+  - default setup
+  - toggle afterwards based on radio:checked status 
+*/
+.switch div {
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  display: block;
+  color: var(--switch-text-color) ;
+  transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s;
+  will-change: opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+  transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+  transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+  opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+  opacity: 1;
+}
 }
 
 .dialogform>div:first-of-type {
@@ -300,17 +466,6 @@ label {
 
 .dialogform>div:last-of-type input[type=checkbox] {
   width: unset;
-}
-
-.dialogform>label {
-  display: inline;
-}
-
-.dialogform>input[type=submit] {
-  width: 100%;
-  margin-top: 12px;
-  padding: 6px;
-  cursor: pointer;
 }
 
 .row {
@@ -396,6 +551,7 @@ input#c3 {
 label[for=c3] {
   width: 90%;
   align-self: center;
+  margin: 0;
 }
 
 /* yeah i know */

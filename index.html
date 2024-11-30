@@ -206,15 +206,26 @@
         </div>
       </div>
       <div class="row">
-        <div class="row">
-          <input type="radio" name="type" value="relation" id="r1" required>
-          <label for="r1">Relation</label>
+        <div class="row radio-block">
+          <div class="switches-container">
+            <input type="radio" id="r1" name="type" value="relation" required checked="checked" />
+            <input type="radio" id="r2" name="type" value="interaction" required/>*
+            <label for="r1">Relation</label>
+            <label for="r2">Interaction</label>
+            <span class="selected" aria-hidden="true"></span>
+            <div class="switch-wrapper">
+              <div class="switch">
+                <div>Relation</div>
+                <div>Interaction</div>
+              </div>
+            </div>
+          </div>
           <br>
-          <input type="radio" name="type" value="interaction" id="r2" required>
-          <label for="r2">Interaction</label>
         </div>
+        <div class="row">
         <input type="checkbox" name="obsolete" id="c4">
-        <label for="c4" title="Obsolete associations are associations that used to be valid in the past but aren't valid anymore.">Is this association obsolete?</label>
+        <label id="obs-label" for="c4" title="Obsolete associations are associations that used to be valid in the past but aren't valid anymore.">Is this association obsolete?</label>
+      </div>
       </div>
       <div>
         <div>
@@ -410,8 +421,10 @@
             <label>Release date<span class="req"> *</span></label>
             <input type="date" name="releasedate" required>
           </div>
-          <input type="checkbox" name="completion" id="c3">
+          <div class="row">
+            <input type="checkbox" name="completion" id="c3">
           <label for="c3">Are this event's relations all properly checked?</label>
+        </div>
         </div>
       </div>
       <br>
