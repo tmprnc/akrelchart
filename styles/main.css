@@ -107,6 +107,10 @@
   font-display: swap;
 }
 
+:root {
+  accent-color: var(--btn-active);
+}
+
 p,
 a {
   font-family: "NuberNext Condensed", "Segoe UI", sans-serif;
