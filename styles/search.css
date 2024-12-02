@@ -60,9 +60,12 @@
   backdrop-filter: blur(4px);
   border: none;
   border-radius: 0;
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.12),
-  0px 1px 2px 0px rgba(0,0,0,0.24);
+  box-shadow: var(--elev-1);
   font-family: 'JetBrains Mono';
+}
+
+::-webkit-search-cancel-button {
+  display: none;
 }
 
 #searchbar:focus-visible {

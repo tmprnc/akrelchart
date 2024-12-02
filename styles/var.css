@@ -3,6 +3,14 @@
   --lnk-hvr: #00aeff;
 }
 
+/* Box shadows */
+:root {
+  --elev-1: 0px 1px 3px 0px rgba(0,0,0,0.12), 0px 1px 2px 0px rgba(0,0,0,0.24);
+  --elev-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  --elev-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  --elev-1-glow: 0px 1px 3px 0px rgba(var(--adm1), 0.34), 0px 1px 2px 0px rgba(var(--adm1), 0.55);;
+}
+
 /* NAVBAR COLORS */
 /* General area (ftr_gen) */
 :root {

@@ -38,7 +38,7 @@
 }
 
 #loginform, .dialogform {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: var(--elev-3);
 }
 
 .login-group {
@@ -262,7 +262,7 @@ label {
 
 .dialogform input:focus-visible, .dialogform select:focus-visible {
   outline: none;
-  box-shadow: 0px 1px 3px 0px rgba(var(--adm1), 0.34), 0px 1px 2px 0px rgba(var(--adm1), 0.55);
+  box-shadow: var(--elev-1-glow);
 }
 
 .dialogform label:has(.req) {
@@ -313,8 +313,7 @@ label {
 .dialogform select {
   margin-bottom: 8px;
   border: none;
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.12),
-  0px 1px 2px 0px rgba(0,0,0,0.24);
+  box-shadow: var(--elev-1);
   font-family: 'JetBrains Mono';
 }
 
