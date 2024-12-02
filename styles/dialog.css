@@ -243,6 +243,26 @@ label {
   background-color: #68696a;
   letter-spacing: 0.3px;
   display: inline;
+  transition: all  0.25s;
+}
+
+.dialogform label:has(+ input:focus-visible),
+.dialogform label:has(+ select:focus-visible) {
+  background-color: var(--btn-hvr);
+  color: black;
+}
+
+/* ew */
+.dialogform div:has(select:focus-visible) {
+  & label#inst-lab {
+    background-color: var(--btn-hvr);
+    color: black;
+  };
+}
+
+.dialogform input:focus-visible, .dialogform select:focus-visible {
+  outline: none;
+  box-shadow: 0px 1px 3px 0px rgba(var(--adm1), 0.34), 0px 1px 2px 0px rgba(var(--adm1), 0.55);
 }
 
 .dialogform label:has(.req) {
@@ -305,11 +325,13 @@ label {
 .dialogform input {
   height: 1.7em;
   padding-left: 5px;
+  transition: all  0.25s;
 }
 
 .dialogform select {
   height: 1.85em;
   padding-left: 2px;
+  transition: all  0.25s;
 }
 
 .dialogform input[type=submit] {
