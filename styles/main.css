@@ -122,11 +122,11 @@ a {
 }
 
 a {
-  color: #568eff;
+  color: var(--btn-active);
 }
 
 a:hover {
-  color: #0037ff;
+  color: var(--lnk-hvr);
 }
 
 body {

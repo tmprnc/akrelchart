@@ -1,4 +1,7 @@
 /* Generic colors */
+:root {
+  --lnk-hvr: #00aeff;
+}
 
 /* NAVBAR COLORS */
 /* General area (ftr_gen) */
