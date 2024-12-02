@@ -165,13 +165,13 @@ pre {
 
 @keyframes bg-scrolling-reverse {
   100% {
-    background-position: 80px 160px;
+    background-position: 400px 400px;
   }
 }
 
 #cy {
-  background: url("../images/graphy.webp") repeat 0 0;
-  animation: bg-scrolling-reverse 25s infinite;
+  background: url("../images/grid.svg") repeat 0 0;
+  animation: bg-scrolling-reverse 35s infinite;
   animation-timing-function: linear;
 }
 
