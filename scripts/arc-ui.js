@@ -318,8 +318,8 @@ function showlogin() {
 
 function hidelogin() {
   loginele = document.getElementById("login")
-  setvisibility(login, "i")
-  logo = login.children[0].children[1].children[0]
+  setvisibility(loginele, "i")
+  logo = loginele.children[0].children[1].children[0]
   logo.classList.toggle("login-logo-visible")
 }
 
