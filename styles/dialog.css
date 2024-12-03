@@ -249,14 +249,16 @@ label {
 .dialogform label:has(+ input:focus-visible),
 .dialogform label:has(+ select:focus-visible) {
   background-color: var(--btn-hvr);
-  color: black;
+  color: white;
+  font-size: 11pt;
 }
 
 /* ew */
 .dialogform div:has(select:focus-visible) {
   & label#inst-lab {
     background-color: var(--btn-hvr);
-    color: black;
+    color: white;
+    font-size: 11pt;
   };
 }
 
