@@ -38,7 +38,7 @@
 }
 
 #loginform, .dialogform {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: var(--elev-3);
 }
 
 .login-group {
@@ -143,7 +143,7 @@ input#login-usr {
   top: 8px;
   right: 8px;
   font-size: 8pt;
-  color: red;
+  color: black;
   border: 0px;
   background-color: #0000;
   cursor: pointer;
@@ -243,6 +243,28 @@ label {
   background-color: #68696a;
   letter-spacing: 0.3px;
   display: inline;
+  transition: all  0.25s;
+}
+
+.dialogform label:has(+ input:focus-visible),
+.dialogform label:has(+ select:focus-visible) {
+  background-color: var(--btn-hvr);
+  color: white;
+  font-size: 11pt;
+}
+
+/* ew */
+.dialogform div:has(select:focus-visible) {
+  & label#inst-lab {
+    background-color: var(--btn-hvr);
+    color: white;
+    font-size: 11pt;
+  };
+}
+
+.dialogform input:focus-visible, .dialogform select:focus-visible {
+  outline: none;
+  box-shadow: var(--elev-1-glow);
 }
 
 .dialogform label:has(.req) {
@@ -293,8 +315,7 @@ label {
 .dialogform select {
   margin-bottom: 8px;
   border: none;
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.12),
-  0px 1px 2px 0px rgba(0,0,0,0.24);
+  box-shadow: var(--elev-1);
   font-family: 'JetBrains Mono';
 }
 
@@ -305,11 +326,13 @@ label {
 .dialogform input {
   height: 1.7em;
   padding-left: 5px;
+  transition: all  0.25s;
 }
 
 .dialogform select {
   height: 1.85em;
   padding-left: 2px;
+  transition: all  0.25s;
 }
 
 .dialogform input[type=submit] {

@@ -122,11 +122,11 @@ a {
 }
 
 a {
-  color: #568eff;
+  color: var(--btn-active);
 }
 
 a:hover {
-  color: #0037ff;
+  color: var(--lnk-hvr);
 }
 
 body {
@@ -165,13 +165,13 @@ pre {
 
 @keyframes bg-scrolling-reverse {
   100% {
-    background-position: 80px 160px;
+    background-position: 400px 400px;
   }
 }
 
 #cy {
-  background: url("../images/graphy.webp") repeat 0 0;
-  animation: bg-scrolling-reverse 25s infinite;
+  background: url("../images/grid.svg") repeat 0 0;
+  animation: bg-scrolling-reverse 35s infinite;
   animation-timing-function: linear;
 }
 
@@ -213,7 +213,7 @@ pre {
 }
 
 .ftr_sub {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--elev-2)
 }
 
 .ftr_btn {
@@ -450,12 +450,12 @@ pre {
 .icon {
   width: 24px;
   height: 24px;
-  background-color: #568eff;
+  background-color: var(--btn-active);
   mask-repeat: no-repeat;
 }
 
 .icon:hover {
-  background-color: #1563ff;
+  background-color: var(--lnk-hvr);
 }
 
 .icon-open {

@@ -39,7 +39,7 @@
 #popout {
     background-color: var(--card-bg);
     backdrop-filter: blur(6px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: var(--elev-3);
     border-radius: 2px;
     position: absolute;
     width: 100%;
@@ -76,6 +76,25 @@
   flex-direction: column;
 }
 
+/*
+.clps_btn::after {
+}
+
+.collaps-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.popout_section .collaps-content:first-child {
+  margin-top: -0.7em;
+}
+
+#instancelist {
+  margin-top: 0;
+}
+*/
+
 #popout a {
   margin-bottom: 16px;
   align-self: end;
@@ -98,11 +117,16 @@
   color: #3b3b3b;
 }
 
+.popout_section:first {
+  margin-top: -12px;
+}
+
 .popout_section {
   font-family: "NuberNext Condensed";
   padding: 8px;
   padding-bottom: 5px;
-  margin: -12px 0 0 0;
+  margin: 0 0 0 0;
+  margin-bottom: 5px;
   width: 100%;
   align-self: center;
   background-color: rgba(59, 59, 59, 0.75);
