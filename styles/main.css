@@ -109,11 +109,26 @@
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url(../fonts/JetBrainsMono-Regular.woff2) format('woff2')
+  src: url(../fonts/JetBrainsMono-Regular.woff2) format('woff2');
 }
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  src: url("../fonts/fa-solid-900.woff2") format("woff2"), url("../fonts/fa-solid-900.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 400;
+  src: url("../fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/fa-regular-400.ttf") format("truetype"); }
+
 
 :root {
   accent-color: var(--btn-active);
+}
+
+.fa {
+  vertical-align: middle;
 }
 
 p,
@@ -187,6 +202,47 @@ pre {
   text-align: center;
   justify-content: space-between;
   backdrop-filter: blur(3.5px);
+}
+
+.navico::before {
+  display: none;
+}
+
+.resp-text {
+  margin-left: 0.25em;
+}
+
+/* responsive footer stuff */
+
+@media only screen and (max-width: 1375px) {
+    .ftr_admin .resp-text {
+      display: none;
+    }
+    .ftr_admin .navico::before {
+      display: inline-block;
+    }
+    .ftr_admin .btn_text {
+      padding: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 1070px) {
+  .resp-text {
+    display: none;
+  }
+  .navico::before {
+    display: inline-block;
+  }
+  .btn_text {
+    padding: 0 !important;
+  }
+
+  #banner {
+    content: url("../images/banner-resp.png");
+  }
+  #banner:hover {
+    content: url("../images/banner-resp-awake.png") !important;
+  }
 }
 
 #banner {
@@ -327,9 +383,9 @@ pre {
   padding-left: 4px;
   padding-right: 4px;
   color: white;
-  font-family: "Bender";
-  font-weight: bold;
-  font-size: 1.45rem;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+  font-size: 1.25rem;
   margin-left: 0.5rem;
 }
 
