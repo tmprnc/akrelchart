@@ -127,10 +127,6 @@
   accent-color: var(--btn-active);
 }
 
-.fa {
-  vertical-align: middle;
-}
-
 p,
 a {
   font-family: "NuberNext Condensed", "Segoe UI", sans-serif;
@@ -204,7 +200,11 @@ pre {
   backdrop-filter: blur(3.5px);
 }
 
-.navico::before {
+.navico {
+  vertical-align: 0em !important;
+}
+
+.navico::before, .navico::after {
   display: none;
 }
 
@@ -218,7 +218,7 @@ pre {
     .ftr_admin .resp-text {
       display: none;
     }
-    .ftr_admin .navico::before {
+    .ftr_admin .navico::before, .ftr_admin .navico::after {
       display: inline-block;
     }
     .ftr_admin .btn_text {
@@ -230,7 +230,7 @@ pre {
   .resp-text {
     display: none;
   }
-  .navico::before {
+  .navico::before, .navico::after {
     display: inline-block;
   }
   .btn_text {
@@ -433,9 +433,27 @@ pre {
   width: 80px;
   height: 80px;
   bottom: 0;
-  padding: 0 1% 2% 1%;
+  padding: 0 1% 2.5% 3%;
   align-items: end;
   justify-content: start;
+  z-index: 6;
+}
+
+#restoreui_dummy {
+  display: flex;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  bottom: 0;
+  padding: 0 1% 2.5% 3%;
+  align-items: end;
+  justify-content: start;
+  z-index: 5;
+}
+
+#restoreui > a {
+  backdrop-filter: blur(3px);
+  border-radius: 50%
 }
 
 .restoreui_i {
@@ -448,10 +466,110 @@ pre {
   animation: slideright 0.5s ease-in-out;
 }
 
+body:has(.footer_v) {
+  & .ripple {
+    display: none;
+  }
+}
+
+body:has(.footer_i) {  
+  #restoreui > .hiddenlink {
+    animation: fadeinout 2s linear;
+  }
+}
+
+
+.ripple {
+  height: 40vmin;
+  position: absolute;
+  width: 40vmin;
+  bottom: -12.5vmin;
+  left: -11.5vmin;
+  z-index: -1;
+ 
+  #restoreui_dummy {
+    animation: fadeinout 3s linear;
+  }
+
+  #rippleRing {
+    animation: rippleRing 2s ease-out;
+    border-radius: 50%;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+  }
+
+  #rippleCircle {
+    animation: rippleCircle 2s ease-out;
+    border-radius: 50%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .ripple-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+}
+
+@keyframes rippleRing {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  30% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.8);
+  }
+}
+
+
+@keyframes rippleCircle {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  40% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.6);
+  }
+}
+
+#unhider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  backdrop-filter: blur(2px);
+  background-clip: text;
+  background: rgba(var(--adm1), 0.6);
+}
+
+#unhider > i::before {
+  color: white;
+}
+
+.hiddenlink:has(#unhider) {
+  text-decoration: none;
+}
+
 .hiddenlink {
   opacity: 0;
-  color: #568eff;
-  animation: fadeout 0.2s linear;
+  color: var(--btn-active);
+  animation: fadeout 0.3s linear;
 }
 
 .hiddenlink:hover {
@@ -494,6 +612,18 @@ pre {
     opacity: 1;
   }
 
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
