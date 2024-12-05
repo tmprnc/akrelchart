@@ -208,10 +208,6 @@ pre {
   display: none;
 }
 
-.resp-text {
-  margin-left: 0.25em;
-}
-
 /* responsive footer stuff */
 
 @media only screen and (max-width: 1375px) {
