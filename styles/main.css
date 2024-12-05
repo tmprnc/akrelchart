@@ -427,44 +427,58 @@ pre {
   }
 }
 
-#restoreui {
-  display: flex;
+#restoreui-area, #ripple-area {
   position: absolute;
+  bottom: 1%;
+  left: 2%;
   width: 80px;
   height: 80px;
-  bottom: 0;
-  padding: 0 1% 2.5% 3%;
-  align-items: end;
-  justify-content: start;
+  display: flex;
+}
+
+#ripple-area {
+  align-items: center;
+  justify-content: center;
+}
+
+
+#restoreui {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
   z-index: 6;
 }
 
-#restoreui_dummy {
-  display: flex;
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  bottom: 0;
-  padding: 0 1% 2.5% 3%;
-  align-items: end;
-  justify-content: start;
-  z-index: 5;
+#restoreui {
+  opacity: 0;
+  animation: fadeout 0.3s linear;
 }
+
+#restoreui:hover {
+  opacity: 100;
+  animation: fadein 1s linear;
+}
+
 
 #restoreui > a {
   backdrop-filter: blur(3px);
-  border-radius: 50%
+  border-radius: 50%;
+  text-decoration: none;
 }
 
-.restoreui_i {
+/* .restoreui_i {
   left: -50%;
   animation: slideleft 0.5s ease-in-out;
 }
 
 .restoreui_v {
-  left: 0;
+  left: ;
   animation: slideright 0.5s ease-in-out;
 }
+
+*/
 
 body:has(.footer_v) {
   & .ripple {
@@ -473,23 +487,17 @@ body:has(.footer_v) {
 }
 
 body:has(.footer_i) {  
-  #restoreui > .hiddenlink {
+  #restoreui {
     animation: fadeinout 2s linear;
   }
 }
 
 
 .ripple {
-  height: 40vmin;
   position: absolute;
-  width: 40vmin;
-  bottom: -12.5vmin;
-  left: -11.5vmin;
+  height: 700%;
+  width: 700%;
   z-index: -1;
- 
-  #restoreui_dummy {
-    animation: fadeinout 3s linear;
-  }
 
   #rippleRing {
     animation: rippleRing 2s ease-out;
