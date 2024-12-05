@@ -453,12 +453,10 @@ pre {
 
 #restoreui {
   opacity: 0;
-  animation: fadeout 0.3s linear;
 }
 
 #restoreui:hover {
-  opacity: 100;
-  animation: fadein 1s linear;
+  opacity: 1;
 }
 
 
@@ -486,8 +484,8 @@ body:has(.footer_v) {
   }
 }
 
-body:has(.footer_i) {  
-  #restoreui {
+body:has(.footer_i) {
+  .restoreui_v {
     animation: fadeinout 2s linear;
   }
 }
@@ -515,7 +513,7 @@ body:has(.footer_i) {
     position: absolute;
     width: 100%;
   }
-  
+
   .ripple-in {
     display: flex;
     align-items: center;
@@ -581,7 +579,7 @@ body:has(.footer_i) {
 }
 
 .hiddenlink:hover {
-  opacity: 100;
+  opacity: 1;
   animation: fadein 1s linear;
 }
 
