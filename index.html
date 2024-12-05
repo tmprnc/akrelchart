@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="./styles/popout.css">
   <link rel="stylesheet" href="./styles/search.css">
   <link rel="stylesheet" href="./styles/dialog.css">
+  <link rel="stylesheet" href="./fa/css/all.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.basic.min.js"></script>
 </head>
@@ -479,29 +480,45 @@ with help from my friends
     <nav class="ftr_sub" id="ftr_gen">
       <img id="banner" src="./images/banner.png">
       <div class="ftr_sep" id="first_sep"></div>
-      <div class="ftr_btn"><a href="#" class="btn_text" onclick="hide()">hide</a></div>
+      <div class="ftr_btn"><a href="#" class="btn_text" onclick="hide()"><i class="navico fa-xs fa-solid fa-angles-down"></i><span class="resp-text">hide</span></a></div>
       <div class="ftr_sep"></div>
-      <div class="ftr_btn"><a href="#" class="btn_text" onclick="popsearch()">search</a></div>
+      <div class="ftr_btn"><a href="#" class="btn_text" onclick="popsearch()"><i class="navico fa-xs fa-solid fa-magnifying-glass"></i><span class="resp-text">search</span></a></div>
       <div class="ftr_sep"></div>
-      <div class="ftr_btn"><a href="#" class="btn_text" onclick="toggletextsize()">text size</a></div>
+      <div class="ftr_btn"><a href="#" class="btn_text" onclick="toggletextsize()"><i class="navico fa-xs fa-duotone fa-solid fa-text-size"></i><span class="resp-text">text size</span></a></div>
     </nav>
     <nav class="ftr_sub ftr_usr">
-      <div id="loginstr" class="admin none">logged in as <span id="username">guest</span></div>
+      <div id="loginstr" class="admin none"><i class="navico fa-xs fa-solid fa-duotone fa-user"></i><span class="resp-text">logged in as</span><span id="username">guest</span></div>
       <div class="ftr_sep admin none"></div>
-      <div class="ftr_btn admin none"><a href="#" class="btn_text" onclick="showpwchange()" id="pwa">change password</a>
+      <div class="ftr_btn admin none"><a href="#" class="btn_text" onclick="showpwchange()" id="pwa"><i class="navico fa-xs fa-solid fa-duotone fa-key"></i><span class="resp-text">change password</span></a>
       </div>
       <div class="ftr_sep admin none"></div>
-      <div class="ftr_btn admin none"><a href="#" class="btn_text" onclick="logout()" id="logout">logout</a></div>
+      <div class="ftr_btn admin none"><a href="#" class="btn_text" onclick="logout()" id="logout"><i class="navico fa-xs fa-solid fa-duotone fa-right-from-bracket"></i><span class="resp-text">logout</span></a></div>
       <div class="ftr_sep admin none"></div>
-      <div class="ftr_btn admin"><a href="#" class="btn_text" onclick="showlogin()" id="logina">edit</a></div>
-      <div class="ftr_sep"></div>
-      <div class="ftr_btn"><a href="#" class="btn_text" onclick="showabout()">about</a></div>
+      <div class="ftr_btn admin"><a href="#" class="btn_text" onclick="showlogin()" id="logina"><i class="navico fa-xs fa-solid fa-duotone fa-file-pen"></i><span class="resp-text">edit</span></a></div>
+      <div class="ftr_sep admin"></div>
+      <div class="ftr_btn"><a href="#" class="btn_text" onclick="showabout()"><i class="navico fa-xs fa-solid fa-duotone fa-circle-question"></i><span class="resp-text"></span><span class="resp-text">about</span></a></div>
     </nav>
   </div>
 
+
+
+
+<div id="restoreui-area">
   <div class="restoreui_i" id="restoreui" inert>
-    <a href="#" class="hiddenlink" onclick="unhide()">unhide</a>
+    <a href="#" onclick="unhide()"><div id="unhider"><i class="fa-solid fa-angles-up fa-2xl"></i></div></a>
   </div>
+</div>
+
+<div id="ripple-area">
+  <div class="ripple">
+    <div class="ripple-in">
+      <img id="rippleRing" src="images/ripple-ring.svg">
+      <img id="rippleCircle" src="images/ripple-circle.svg"
+    </div>
+  </div>
+</div>
+  
+  
 
   <script src="./scripts/arc-db.js"></script>
   <script src="./scripts/arc-cy.js"></script>

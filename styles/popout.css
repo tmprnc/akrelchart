@@ -67,7 +67,9 @@
 }
 
 #charid {
-  color:gray;
+  font-family: 'JetBrains Mono';
+  font-weight: lighter;
+  color: gray;
   font-size: 14px;
 }
 

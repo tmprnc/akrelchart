@@ -232,6 +232,12 @@ label {
   color: #555555;
 }
 
+input[type=checkbox]:checked + label {
+  color: var(--green);
+  background-color: black;
+  box-shadow: 0px 1px 3px 0px rgba(var(--green-rgb), 0.34), 0px 1px 2px 0px rgba(var(--green-rgb), 0.55);
+}
+
 .dialogform label {
   font-size: 10pt;
   margin-top: 12px;

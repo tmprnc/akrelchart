@@ -1,6 +1,8 @@
 /* Generic colors */
 :root {
   --lnk-hvr: #00aeff;
+  --green: #CCFF66;
+  --green-rgb: 204, 255, 102;
 }
 
 /* Box shadows */
@@ -8,7 +10,7 @@
   --elev-1: 0px 1px 3px 0px rgba(0,0,0,0.12), 0px 1px 2px 0px rgba(0,0,0,0.24);
   --elev-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   --elev-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  --elev-1-glow: 0px 1px 3px 0px rgba(var(--adm1), 0.34), 0px 1px 2px 0px rgba(var(--adm1), 0.55);;
+  --elev-1-glow: 0px 1px 3px 0px rgba(var(--adm1), 0.34), 0px 1px 2px 0px rgba(var(--adm1), 0.55);
 }
 
 /* NAVBAR COLORS */
@@ -16,7 +18,7 @@
 :root {
   --gen1: 25, 25, 26;
   --gen2: 49, 49, 49;
-  --btn-hvr: #0796D7;
+  --btn-hvr: #0796d7;
   --btn-active: #008ed0;
   --btn-text: white;
 }

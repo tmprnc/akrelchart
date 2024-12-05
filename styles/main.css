@@ -109,8 +109,19 @@
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url(../fonts/JetBrainsMono-Regular.woff2) format('woff2')
+  src: url(../fonts/JetBrainsMono-Regular.woff2) format('woff2');
 }
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  src: url("../fonts/fa-solid-900.woff2") format("woff2"), url("../fonts/fa-solid-900.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 400;
+  src: url("../fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/fa-regular-400.ttf") format("truetype"); }
+
 
 :root {
   accent-color: var(--btn-active);
@@ -187,6 +198,51 @@ pre {
   text-align: center;
   justify-content: space-between;
   backdrop-filter: blur(3.5px);
+}
+
+.navico {
+  vertical-align: 0em !important;
+}
+
+.navico::before, .navico::after {
+  display: none;
+}
+
+.resp-text {
+  margin-left: 0.25em;
+}
+
+/* responsive footer stuff */
+
+@media only screen and (max-width: 1375px) {
+    .ftr_admin .resp-text {
+      display: none;
+    }
+    .ftr_admin .navico::before, .ftr_admin .navico::after {
+      display: inline-block;
+    }
+    .ftr_admin .btn_text {
+      padding: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 1070px) {
+  .resp-text {
+    display: none;
+  }
+  .navico::before, .navico::after {
+    display: inline-block;
+  }
+  .btn_text {
+    padding: 0 !important;
+  }
+
+  #banner {
+    content: url("../images/banner-resp.png");
+  }
+  #banner:hover {
+    content: url("../images/banner-resp-awake.png") !important;
+  }
 }
 
 #banner {
@@ -327,9 +383,9 @@ pre {
   padding-left: 4px;
   padding-right: 4px;
   color: white;
-  font-family: "Bender";
-  font-weight: bold;
-  font-size: 1.45rem;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+  font-size: 1.25rem;
   margin-left: 0.5rem;
 }
 
@@ -371,31 +427,157 @@ pre {
   }
 }
 
-#restoreui {
-  display: flex;
+#restoreui-area, #ripple-area {
   position: absolute;
+  bottom: 1%;
+  left: 2%;
   width: 80px;
   height: 80px;
-  bottom: 0;
-  padding: 0 1% 2% 1%;
-  align-items: end;
-  justify-content: start;
+  display: flex;
 }
 
-.restoreui_i {
+#ripple-area {
+  align-items: center;
+  justify-content: center;
+}
+
+
+#restoreui {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+}
+
+#restoreui {
+  opacity: 0;
+  animation: fadeout 0.3s linear;
+}
+
+#restoreui:hover {
+  opacity: 100;
+  animation: fadein 1s linear;
+}
+
+
+#restoreui > a {
+  backdrop-filter: blur(3px);
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+/* .restoreui_i {
   left: -50%;
   animation: slideleft 0.5s ease-in-out;
 }
 
 .restoreui_v {
-  left: 0;
+  left: ;
   animation: slideright 0.5s ease-in-out;
+}
+
+*/
+
+body:has(.footer_v) {
+  & .ripple {
+    display: none;
+  }
+}
+
+body:has(.footer_i) {  
+  #restoreui {
+    animation: fadeinout 2s linear;
+  }
+}
+
+
+.ripple {
+  position: absolute;
+  height: 700%;
+  width: 700%;
+  z-index: -1;
+
+  #rippleRing {
+    animation: rippleRing 2s ease-out;
+    border-radius: 50%;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+  }
+
+  #rippleCircle {
+    animation: rippleCircle 2s ease-out;
+    border-radius: 50%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .ripple-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+}
+
+@keyframes rippleRing {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  30% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.8);
+  }
+}
+
+
+@keyframes rippleCircle {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  40% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(0.6);
+  }
+}
+
+#unhider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  backdrop-filter: blur(2px);
+  background-clip: text;
+  background: rgba(var(--adm1), 0.6);
+}
+
+#unhider > i::before {
+  color: white;
+}
+
+.hiddenlink:has(#unhider) {
+  text-decoration: none;
 }
 
 .hiddenlink {
   opacity: 0;
-  color: #568eff;
-  animation: fadeout 0.2s linear;
+  color: var(--btn-active);
+  animation: fadeout 0.3s linear;
 }
 
 .hiddenlink:hover {
@@ -438,6 +620,18 @@ pre {
     opacity: 1;
   }
 
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
