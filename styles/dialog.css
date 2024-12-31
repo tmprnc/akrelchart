@@ -593,3 +593,85 @@ label[for=c4] {
     text-align: center;
     color: gray;
 }
+
+#linkarea {
+  display: flex;
+  gap: 0.8em;
+  font-size: 1.6em;
+  & a {
+    text-decoration: none;
+  }
+  & a:has(.fa-discord) {
+    color: #7289DA;
+    & :hover {
+      color: color-mix(in oklab, #7289DA 85%, white 15%)
+    }
+  }
+  & a:has(.fa-github) {
+    color: #1a1f25;
+    & :hover {
+      color: color-mix(in oklab, #1a1f25 85%, white 15%)
+    }
+  }
+}
+
+#about > .dialog {
+  min-width: 50vh;
+  font-family: 'NuberNext Condensed';
+  font-size: 16pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+  padding: 2em;
+  box-shadow: var(--elev-2)
+}
+
+#about-banner {
+  height: 20vh;
+  max-width: 55vh;
+}
+
+.about-name {
+  display: flex;
+  align-items: flex-end;
+}
+
+#about-title {
+  font-family: 'Novecento Sans';
+  font-weight: 600;
+  font-size: 1.4em;
+  letter-spacing: -0.05em;
+}
+
+#version {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 65px;
+  height: 65px;
+  margin-left: 0.3em;
+  background-color: black;
+  color: white;
+  font-family: 'Bender'
+}
+
+#version > span {
+  padding-right: 2px;
+  padding-left: 4px;
+}
+
+#version > span:nth-child(1) {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+#version > span:nth-child(2) {
+  font-size: 210%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  position: relative;
+  bottom: 10%
+}
